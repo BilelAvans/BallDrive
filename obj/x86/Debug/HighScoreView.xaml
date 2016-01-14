@@ -1,0 +1,54 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="BallDrive.HighScoreView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BallDrive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='2' x:Name="MobileVisState">
+                <VisualState>
+                    <VisualState.Setters>
+                        <Setter Target="scoreItemsList.Width" Value="200" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="200" MinWindowHeight="300" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:ConnectionId='3' x:Name="DesktopVisState">
+                <VisualState>
+                    <VisualState.Setters>
+                        <Setter Target="scoreItemsList.Width" Value="600" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="800" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
+            <TextBlock Text="Top 5 Highscores" />
+            <Grid>
+                <TextBlock Text="Name"    Margin="1, 70, 0, 0" />
+                <TextBlock Text="Score"   Margin="60, 70, 0, 0"/>
+            </Grid>
+            <ListBox x:ConnectionId='4' x:Name="scoreItemsList"                               Margin="0, 100, 0, 0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ListBoxItem>
+                            <Grid>
+                                <TextBlock Text="{Binding Name}"    Margin="1, 0, 0, 0" />
+                                <TextBlock Text="{Binding Score}"   Margin="60, 0, 0, 0"/>
+                            </Grid>
+                        </ListBoxItem>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </RelativePanel>
+    </Grid>
+</Page>
+

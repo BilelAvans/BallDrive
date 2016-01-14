@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="BallDrive.NewGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BallDrive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Left" x:Name="GameSettingsPanel" Margin="30, 15 ,0 ,0" Width="250">
+            <TextBlock Padding="20, 0, 0, 0" Text="Select your game settings please"/>
+            <TextBlock Padding="20, 10, 0, 0" Text="Which game?" />
+            <ListBox Padding="20, 10, 0, 0" Width="175">
+                <ListBoxItem Content="CollisionDrive" />
+            </ListBox>
+            <TextBlock Padding="20, 10, 0, 0" Text="Difficulty" />
+            <ListBox x:Name="diffSelection" Padding="0, 10, 0, 0" Width="175" Height="50">
+                <ListBoxItem Content="Easy" />
+                <ListBoxItem Content="Normal" />
+                <ListBoxItem Content="Hard" />
+            </ListBox>
+            <Button x:Name="StartGameButton" Content="Start" Width="50" Height="40" HorizontalAlignment="Right" Click="StartGameButton_Click"/>
+
+        </StackPanel>
+        <StackPanel Name="SmackWanel" DataContext="{Binding nQueue}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100">
+            <Popup Name="notification" IsOpen="{Binding MessageAvailable}">
+                <RelativePanel Name="popupgrid" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Cyan">
+                    <TextBlock Name="notificationTextBlockTitle" Text="{Binding Current.Title}" />
+                    <TextBlock Name="notificationTextBlockMessage" Text="{Binding Current.Message}" Margin="0, 20, 0, 0" Width="180" Height="50" FontSize="11" TextWrapping="WrapWholeWords"/>
+                    <Button Name="notificationReadButton" Content="OK" Click="notificationReadButton_Click" HorizontalAlignment="Right" Margin="160, 70, 0, 0" FontSize="10" VerticalAlignment="Stretch"/>
+                </RelativePanel>
+            </Popup>
+        </StackPanel>
+    </Grid>
+</Page>
