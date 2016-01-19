@@ -65,14 +65,6 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Padding" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Items" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="Header" />
-      <RootProperty Name="ItemTemplate" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox" />
     <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
       <RootProperty Name="ItemsSource" />
@@ -99,10 +91,8 @@
       <RootProperty Name="Converter" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem">
-      <RootProperty Name="Content" />
-    </RootType>
     <RootType FullName="BallDrive.AppSettings" />
+    <RootType FullName="BallDrive.BallDriveInfoPage" />
     <RootType FullName="BallDrive.Data.Characters.DoubleToMultiplyerString" />
     <RootType FullName="BallDrive.Data.Characters.ColorToColorBrushConverter" />
     <RootType FullName="BallDrive.Data.Games.toMinuteSecondFormatConverter" />
@@ -115,16 +105,14 @@
       <RootMethod Name="GetTop" />
       <RootMethod Name="SetTop" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Content" />
+      <RootProperty Name="Source" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="Height" />
-      <RootEvent Name="Click" />
+      <RootEvent Name="PointerPressed" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Ellipse">
       <RootProperty Name="DataContext" />
@@ -155,8 +143,25 @@
       <RootProperty Name="MinWindowWidth" />
       <RootProperty Name="MinWindowHeight" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
     <RootType FullName="BallDrive.HighScoreView" />
     <RootType FullName="BallDrive.Data.PopupQueue" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Height" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="BallDrive.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
       <RootProperty Name="Name" />

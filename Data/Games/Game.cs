@@ -26,8 +26,8 @@ namespace BallDrive.Data.Games
 
 
         public DifficultySettings Difficulty;
-
-        public double RespawnSpeed { get; set; } = 1000;
+        // Start repawn speed at 1 second
+        public TimeSpan RespawnSpeed { get; set; } = TimeSpan.FromMilliseconds(1000);
 
         public CharacterManager CMan { get; set; }
 
@@ -47,7 +47,7 @@ namespace BallDrive.Data.Games
         public void hasEnded()
         {
             Changed("TimeLeft");
-            RespawnSpeed -= 0.001;
+            RespawnSpeed -= Difficulty.reduceSpawnTimePerHit;
             if (TimeLeft < TimeSpan.FromSeconds(0))
                 GameEvent(this, new EventArgs());
             
@@ -62,6 +62,16 @@ namespace BallDrive.Data.Games
                     PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
                 });
             }
+        }
+
+        ~Game() {
+
+            removeAllHandlers();
+        }
+
+        public void removeAllHandlers()
+        {
+
         }
     }
 }

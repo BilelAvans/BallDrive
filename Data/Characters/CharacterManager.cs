@@ -10,6 +10,8 @@ using BallDrive.Data.Characters.Enemies;
 using Windows.Storage;
 using Windows.UI;
 using BallDrive.Data.Characters.Animations;
+using BallDrive.Data.Characters.Items;
+using System.Threading.Tasks;
 
 namespace BallDrive.Data.Characters
 {
@@ -44,7 +46,7 @@ namespace BallDrive.Data.Characters
             Characters = new ObservableCollection<Character>();
             aniMan = new AnimationManager();
             addTestValues(6);
-                      
+            //Characters.Add(new StarModeItem(100, 100));          
 
         }
 
@@ -74,7 +76,7 @@ namespace BallDrive.Data.Characters
             {
                 Characters.Where(character => character is NPC).Cast<NPC>().ToList()
                           .Where(chara => chara.lifecycleEnded() == true).ToList()
-                          .ForEach(ch2 => { ch2.PropertyChanged += null; Characters.Remove(ch2); CurrentCharacter.Multi.Decrement(); });
+                          .ForEach(ch2 => { ch2.removeAllHandlers(); Characters.Remove(ch2); CurrentCharacter.Multi.Decrement(); });
 
             });
         }
@@ -105,16 +107,36 @@ namespace BallDrive.Data.Characters
             {
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
                 {
-                    if (ch is BombNPC) {
+                    if (ch is BombNPC)
+                    {
                         CurrentCharacter.Multi.Clear();
                         CurrentCharacter.Points -= CurrentCharacter.Points / 5; // Lose 20% of Health
                     }
                     else if (ch is MovingNPC || ch is NPC)
                         CurrentCharacter.Points += CurrentCharacter.Multi.Increment();
+                    else if (ch is Item)
+                    {
+                        if (ch is StarModeItem)
+                            CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.MULTIPLYER_X10_BONUS;
+                        else if (ch is MultiplyerEnhancerItem)
+                            CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.DOUBLE_POINTS;
+
+                        BackgroundWorker worker = new BackgroundWorker();
+                        worker.DoWork += Worker_DoWork;
+                        worker.RunWorkerAsync();
+                    }
                     
                     Characters.Remove(ch);
+                    ch.removeAllHandlers();
                 });
             }
+        }
+
+        private async void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(5));
+            CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.NO_BONUS;
+            CurrentCharacter.Multi.MP = 5;
         }
 
         public async void Close()

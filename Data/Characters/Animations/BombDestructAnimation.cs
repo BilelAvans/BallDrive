@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Shapes;
 
 namespace BallDrive.Data.Characters.Animations
 {
-    public class BombDestructAnimation : IAnimation
+    public class BombDestructAnimat
     {
         public Shape Animation
         {

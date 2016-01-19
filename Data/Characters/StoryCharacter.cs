@@ -14,7 +14,7 @@ using Windows.UI;
 
 namespace BallDrive.Data.Characters
 {
-    public class StoryCharacter : Character, INotifyPropertyChanged
+    public class StoryCharacter : NPC, INotifyPropertyChanged
     {
 
         private int points = 0;
@@ -29,6 +29,8 @@ namespace BallDrive.Data.Characters
         public Multiplyer Multi { get { return multi; } set { this.multi = value; Changed("Multi"); Changed("Speed"); } }
 
         public new int Speed { get { return (int)multi.MP * 3; } }
+
+        public string Name { get; set; } = "Bob";
 
         public StoryCharacter(int x, int y): this(x, y, Colors.Black)
         {
@@ -74,7 +76,7 @@ namespace BallDrive.Data.Characters
                 
                 Changed("LastPositions");
             });
-        }
+        } 
         /*
         public new bool outOfBounds(int boundX, int boundY)
         {

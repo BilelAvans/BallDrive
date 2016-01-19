@@ -40,7 +40,7 @@ namespace BallDrive
                 nQueue.Enqueue(new Note("Set difficulty", "No difficulty set, please select one"));
             else {
                 string content = (string)selectedItem.Content;
-                this.Frame.Navigate(typeof(GameView), new Tuple<DifficultySettings.DIFFICULTY>(DifficultySettings.stringToDiff(content)));
+                this.Frame.Navigate(typeof(GameView), DifficultySettings.stringToDiff(content));
             }
         }
 

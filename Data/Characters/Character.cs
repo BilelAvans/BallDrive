@@ -31,26 +31,28 @@ namespace BallDrive.Data.Characters
 
         // Might set an image for the character
         private Image image { get; set; }
-
+        public TimeSpan timeToLive { get; set; }
         // Size of our shape
         public int Size { get; set; }
 
         public const int maxHealth = 100;
 
-        private int health;
-        public int Health { get { return health; } private set { health = value; Changed("Health"); } }
-
         public int Speed { get; set; }
 
-        public string Name { get; set; } = "Bob";
-
+        // Constructor for NPC's
         public Character(int x, int y, int speed, int size, Color color)
         {
             this.Position = new Position(x, y);
             this.Speed = speed;
             this.Size = size;
             this.currentColor = color;
+        }
 
+        // Constructor for Ítems
+        public Character(int x, int y, int size)
+        {
+            this.Position = new Position(x, y);
+            this.Size = size;
         }
 
         public void move(int x, int y)
@@ -59,18 +61,7 @@ namespace BallDrive.Data.Characters
             Position.Y = Position.Y + y * this.Speed;
         }
 
-        public void addHealth(int amount)
-        {
-            if (health + amount > maxHealth)
-                health += 0;
-            else
-                health += amount;
 
-            if (health < 1)
-            {
-                // Geen leven meer over
-            }
-        }
 
         public void move(ControlHandler.Directions direction)
         {
@@ -149,6 +140,18 @@ namespace BallDrive.Data.Characters
 
             return false;
 
+        }
+
+        public void removeAllHandlers()
+        {
+            if (PropertyChanged != null)
+            {
+                foreach (Delegate del in PropertyChanged.GetInvocationList())
+                {
+                    PropertyChanged -= (PropertyChangedEventHandler)del;
+                    PropertyChanged = null;
+                }
+            }
         }
         
     }

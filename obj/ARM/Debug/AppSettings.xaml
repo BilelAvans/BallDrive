@@ -11,25 +11,16 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
             <StackPanel x:ConnectionId='2' x:Name="SettingsPanel" HorizontalAlignment="Center" Margin="20, 50, 0, 0" Width="150">
-                <TextBlock x:ConnectionId='3' x:Name="Example" Text="Language" />
-                <ListView Width="100" Margin="10, 0, 0, 0">
-                    <ListViewItem>
-                        Nederlands
-                    </ListViewItem>
-                    <ListViewItem>
-                        English
-                    </ListViewItem>
-                </ListView>
-                <TextBlock x:ConnectionId='4' x:Name="UserNameBox" Text="Preferred Username" />
-                <TextBox x:ConnectionId='5' x:Name="PreferredUserNameBox" />
-                <TextBlock x:ConnectionId='6' x:Name="PrefColorBox" Text="Preferred Color" />
-                <ListBox x:ConnectionId='7'                               >
+                <TextBlock x:ConnectionId='3' x:Name="UserNameBox" Text="Preferred Username" />
+                <TextBox x:ConnectionId='4' x:Name="PreferredUserNameBox" />
+                <TextBlock x:ConnectionId='5' x:Name="PrefColorBox" Text="Preferred Color" />
+                <ListBox x:ConnectionId='6'                               >
                     <ListBox.Resources>
                         <local:ColorToBrushConverter x:Key="colorToBrush" />
                     </ListBox.Resources>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <ListBoxItem x:ConnectionId='8' Background="{Binding Converter={StaticResource colorToBrush}}"                             Width="200"/>
+                            <ListBoxItem x:ConnectionId='7' Background="{Binding Converter={StaticResource colorToBrush}}"                             Width="200"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

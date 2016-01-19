@@ -17,6 +17,9 @@ using Windows.UI.ViewManagement;
 using System.Diagnostics;
 using Windows.Storage;
 using BallDrive.Data;
+using BallDrive.Data.Notifications;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -34,7 +37,7 @@ namespace BallDrive
         {
             setResolution();
             this.InitializeComponent();
-            
+
         }
 
         public void startNewGame(object sender, RoutedEventArgs args)
