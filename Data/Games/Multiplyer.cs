@@ -21,9 +21,19 @@ namespace BallDrive.Data.Games
 
         // Multiplyer starts with 1 (score * 1)
         private double multiplyer = 1; 
-        public double MP { get { return multiplyer; } set { this.multiplyer = value; Changed("MP"); } }
+        public double MP { get { return multiplyer; } set { setMP(value); Changed("MP"); } }
 
         private DifficultySettings.DIFFICULTY difficulty;
+
+        public enum multiplyerBonus
+        {
+            NO_BONUS,
+            MULTIPLYER_X10_BONUS,
+            DOUBLE_POINTS,
+            TRIPLE_POINTS
+        }
+
+        public multiplyerBonus MPBonus { get; set; } = multiplyerBonus.NO_BONUS;
 
         public Multiplyer(DifficultySettings.DIFFICULTY diff)
         {
@@ -50,6 +60,15 @@ namespace BallDrive.Data.Games
         {
             MP = 1;
         }
+
+        public void setMP(double newMP)
+        {
+            switch (MPBonus) {
+                case multiplyerBonus.NO_BONUS: this.multiplyer = newMP; break;
+                case multiplyerBonus.MULTIPLYER_X10_BONUS: this.multiplyer = 10; break;
+            }
+        }
+
         // asjust multiplyer by difficulty and return it
         private int getMultiplyerPoints()
         {

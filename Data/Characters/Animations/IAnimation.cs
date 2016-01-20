@@ -10,7 +10,7 @@ namespace BallDrive.Data.Characters.Animations
     interface IAnimation
     {
         // Animation in form of a shape
-        Shape Animation { get; set; }
+        List<Shape> Animations { get; set; }
         // Reshape the animation to next animation state
         void reformOnce();
         // Is it done?

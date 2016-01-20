@@ -52,8 +52,9 @@
                     </ItemsControl.ItemTemplate>
                 </-->
             </Canvas>
-            <Button x:Name="resetButton" Click="resetButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 10, 5" Content="Reset" />
-            <Button x:Name="CloseButton" Click="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 75, 5" Content="Exit"/>
+            <Image x:Name="CloseButton" PointerPressed="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 0, 5" Source="/Assets/stop.png" Width="30" Height="30"></Image>
+            <Image x:Name="resetButton" PointerPressed="resetButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 35, 5" Source="/Assets/refresh.png" Width="30" Height="30"></Image>
+            <Image x:Name="pauseStatusImage" Source="/Assets/pause.png" Width="30" Height="30" PointerPressed="pauseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 67, 5"/>
         </Grid>
     </Grid>
     <!--

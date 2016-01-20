@@ -13,8 +13,6 @@ namespace BallDrive.Data.Controls
     public class AccelHandler : ControlHandler
     {
         public Accelerometer A { get; set; }
-
-        public event EventHandler Event;
         
         private uint reportInterval = 100;
 

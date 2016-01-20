@@ -27,8 +27,6 @@ namespace BallDrive
     public sealed partial class HighScoreView : Page
     {
 
-        bool hasRan = false;
-
         private List<HighScore> Scores;
 
         private HighScore personalScore;
@@ -52,32 +50,29 @@ namespace BallDrive
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (hasRan == false)
+            base.OnNavigatedTo(e);
+            Scores = new List<HighScore>();
+            // Get played game highscore
+            personalScore = e.Parameter as HighScore;
+
+            Scores.Add(personalScore);
+            // Get saved highscores
+
+            try
             {
-                base.OnNavigatedTo(e);
-                Scores = new List<HighScore>();
-                // Get played game highscore
-                personalScore = e.Parameter as HighScore;
-                Scores.Add(personalScore);
-                // Get saved highscores
-                List<HighScore> tempScoreList = await ScoreDB.loadScores();
-
-                try
-                {
-                    Scores.AddRange(tempScoreList);
-                }
-                catch (NullReferenceException ex)
-                {
-                    Debug.Write(ex.Message);
-                }
-
-                if (Scores.Max(sc => sc.Score) <= personalScore.Score)
-                    new Notification().standardNotification("Highscore", "Congratulations, you're leading with "+ personalScore.Score);
-
-                ScoreDB.saveScores(Scores);
-                hasRan = true;
+                Scores.AddRange(await ScoreDB.loadScores());
             }
-            
+            catch (NullReferenceException ex)
+            {
+                Debug.Write(ex.Message);
+            }
+
+            if (Scores.Where(sc => sc.Difficulty.Equals(personalScore.Difficulty)).Max(sc => sc.Score) <= personalScore.Score)
+            {
+                Notification.sendNote(Notification.standardNotification("Highscore", "Congratulations, you're leading with " + personalScore.Score + " Points on "+ personalScore.Difficulty));
+            }
+
+            ScoreDB.saveScores(Scores);
         }
 
         

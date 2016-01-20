@@ -1,35 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
 namespace BallDrive.Data.Characters.Animations
 {
-    class NPCHitAnimation : IAnimation
+    public class NPCHitAnimation : IAnimation, INotifyPropertyChanged
     {
-        public Shape Animation { get; set; }
+        public List<Shape> Animations { get; set; }
 
         public int totSteps = 0;
         public const int MAX_STEPS = 25;
 
-        public NPCHitAnimation()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public NPCHitAnimation(int hitatX, int hitatY)
         {
-            Animation = new Ellipse();
-            Animation.Width = 25;
-            Animation.Height = 25;
-            Animation.Fill = new SolidColorBrush(Colors.Cyan);
+            Animations = new List<Shape>();
+            Ellipse el = new Ellipse();
+            el.Width = hitatX;
+            el.Height = hitatY;
+            Animations.Add(el);
         }
 
         public void reformOnce()
         {
-            Animation.Width++;
-            Animation.Height++;
-            Animation.Opacity--;
-            totSteps++;
+            if (totSteps == 0) {
+                Ellipse el = (Ellipse)Animations[0];
+                for (int counter = 0; counter < 6; counter++)
+                {
+                    Ellipse ell = new Ellipse();
+                    ell.Width = el.Width + 1 * Math.Cos((360 / 6) * counter);
+                    ell.Height = el.Height + 1 * Math.Sin((360 / 6) * counter);
+                    Animations.Add(ell);
+                }
+                Animations.Remove(el);
+                
+            }
+            else if (totSteps < 50) {
+                for (int counter = 0; counter < 6; counter++)
+                {
+                    Ellipse ell = (Ellipse)Animations[counter];
+                    ell.Width = ell.Width + 1 * Math.Cos((360 / 6) * counter);
+                    ell.Height = ell.Height + 1 * Math.Sin((360 / 6) * counter);
+                    ell.Opacity -= 0.01;
+                }
+            }
+        }
+
+        public async void Changed(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                await CoreApplication.MainView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                });
+            }
         }
 
 
@@ -39,6 +72,17 @@ namespace BallDrive.Data.Characters.Animations
                 return true;
 
             return false;
+        }
+
+        ~NPCHitAnimation()
+        {
+            PropertyChanged.GetInvocationList().ToList().ForEach(del =>
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged -= (PropertyChangedEventHandler)del;
+                }
+            });
         }
     }
 }

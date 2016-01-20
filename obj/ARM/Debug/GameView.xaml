@@ -23,7 +23,7 @@
             <TextBlock Text="{Binding CMan.CurrentCharacter.Multi.MP, Converter={StaticResource DoubToMPStr}}" Margin="120, 10, 0, 0" />
             <TextBlock Text="{Binding TimeLeft, Converter={StaticResource toTimeConv}}" HorizontalAlignment="Right" Margin="0, 10, 20, 0" />
             <Canvas x:ConnectionId='4' Name="GamePanel" Margin="0, 10, 0, 0">
-                <Ellipse x:ConnectionId='7' x:Name="PlayerEllipse" DataContext="{Binding CMan.CurrentCharacter}" Fill="{Binding brush, Converter={StaticResource colorConv}}" Canvas.Left="{Binding Position.X}" Canvas.Top="{Binding Position.Y}" Width="{Binding Size}" Height="{Binding Size}"/>
+                <Ellipse x:ConnectionId='8' x:Name="PlayerEllipse" DataContext="{Binding CMan.CurrentCharacter}" Fill="{Binding brush, Converter={StaticResource colorConv}}" Canvas.Left="{Binding Position.X}" Canvas.Top="{Binding Position.Y}" Width="{Binding Size}" Height="{Binding Size}"/>
                 <ItemsControl ItemsSource="{Binding CMan.CurrentCharacter.LastPositions}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -33,7 +33,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                <ItemsControl x:ConnectionId='8'                                                   >
+                <ItemsControl x:ConnectionId='9'                                                   >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -52,8 +52,9 @@
                     </ItemsControl.ItemTemplate>
                 </-->
             </Canvas>
-            <Button x:ConnectionId='5' x:Name="resetButton"                           HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 10, 5" Content="Reset" />
-            <Button x:ConnectionId='6' x:Name="CloseButton"                            HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 75, 5" Content="Exit"/>
+            <Image x:ConnectionId='5' x:Name="CloseButton"                                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 0, 5" Source="/Assets/stop.png" Width="30" Height="30"></Image>
+            <Image x:ConnectionId='6' x:Name="resetButton"                                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 35, 5" Source="/Assets/refresh.png" Width="30" Height="30"></Image>
+            <Image x:ConnectionId='7' x:Name="pauseStatusImage" Source="/Assets/pause.png" Width="30" Height="30"                                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 67, 5"/>
         </Grid>
     </Grid>
     <!--

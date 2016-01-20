@@ -18,9 +18,11 @@ namespace BallDrive.Data.Characters
     {
 
         private DateTime spawnTime;
-        public TimeSpan timeToLive { get; set; }
 
         public int[] Destination { get; set; }
+
+        private int health;
+        public int Health { get { return health; } private set { health = value; Changed("Health"); } }
 
         public NPC(int x, int y) : base(x, y, 10, 25, Colors.Cyan)
         {
@@ -28,6 +30,24 @@ namespace BallDrive.Data.Characters
             this.timeToLive     =   TimeSpan.FromSeconds(15);
         }
 
+        public NPC(int x, int y, int speed, int size, Color col): base(x, y, speed, size, col)
+        {
+            this.spawnTime = DateTime.Now;
+            this.timeToLive = TimeSpan.FromSeconds(15);
+        } 
+
+        public void addHealth(int amount)
+        {
+            if (health + amount > maxHealth)
+                health += 0;
+            else
+                health += amount;
+
+            if (health < 1)
+            {
+                // Geen leven meer over
+            }
+        }
 
         public bool lifecycleEnded()
         {

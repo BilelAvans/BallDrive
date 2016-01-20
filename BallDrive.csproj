@@ -115,13 +115,16 @@
     <Compile Include="Data\Characters\Enemies\MovingNPC.cs" />
     <Compile Include="Data\Characters\Enemies\MultiplyerBonusNPC.cs" />
     <Compile Include="Data\Characters\Enemies\NPC.cs" />
+    <Compile Include="Data\Characters\Items\Item.cs" />
+    <Compile Include="Data\Characters\Items\MultiplyerEnhancerItem.cs" />
+    <Compile Include="Data\Characters\Items\StarModeItem.cs" />
     <Compile Include="Data\Characters\Position.cs" />
     <Compile Include="Data\Characters\Enemies\TeleportingNPC.cs" />
     <Compile Include="Data\Characters\OverlapCalculator.cs" />
     <Compile Include="Data\Characters\Enemies\BombNPC.cs" />
     <Compile Include="Data\Characters\StoryCharacter.cs" />
     <Compile Include="Data\Controls\ControlHandler.cs" />
-    <Compile Include="Data\Controls\DifficultySettings.cs" />
+    <Compile Include="Data\Games\DifficultySettings.cs" />
     <Compile Include="Data\Games\BallCatcher.cs" />
     <Compile Include="Data\Games\Game.cs" />
     <Compile Include="Data\Controls\AccelHandler.cs" />
@@ -157,6 +160,12 @@
   <ItemGroup>
     <Content Include="Assets\bomb-20x20.png" />
     <Content Include="Assets\bomb-30x31.png" />
+    <Content Include="Assets\pause.png" />
+    <Content Include="Assets\play.png" />
+    <Content Include="Assets\plus.png" />
+    <Content Include="Assets\refresh.png" />
+    <Content Include="Assets\star.png" />
+    <Content Include="Assets\stop.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -172,6 +181,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="AppSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BallDriveInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,7 +206,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Characters\Enemies\NewFolder1\" />
     <Folder Include="Data\StorageDepo\" />
   </ItemGroup>
   <ItemGroup>

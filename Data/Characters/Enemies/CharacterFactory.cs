@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BallDrive.Data.Characters.Items;
 
 namespace BallDrive.Data.Characters.Enemies
 {
@@ -30,6 +31,7 @@ namespace BallDrive.Data.Characters.Enemies
             return npc;
         }
 
+
         public static NPC Random(int width, int height)
         {
             
@@ -52,6 +54,30 @@ namespace BallDrive.Data.Characters.Enemies
             int y = random.Next(height);
 
             return new Tuple<int, int>(x, y);
+        }
+
+
+        public static Item RandomStarItem(int width, int height)
+        {
+            Tuple<int, int> randoms = randomXY(400, 600);
+            Item item = new StarModeItem(randoms.Item1, randoms.Item2);
+            return item;
+        }
+
+        public static Item RandomMultiplyerEnhancer(int width, int height)
+        {
+            Tuple<int, int> randoms = randomXY(400, 600);
+            Item item = new MultiplyerEnhancerItem(randoms.Item1, randoms.Item2);
+            return item;
+        }
+        public static Item RandomItem(int width, int height)
+        {
+            int number = (new Random()).Next(4);
+
+            if (number < 3)
+                return RandomStarItem(width, height);
+
+            return (Item)RandomMultiplyerEnhancer(width, height);
         }
     }
 }

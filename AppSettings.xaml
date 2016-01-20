@@ -11,15 +11,6 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
             <StackPanel x:Name="SettingsPanel" HorizontalAlignment="Center" Margin="20, 50, 0, 0" Width="150">
-                <TextBlock x:Name="Example" Text="Language" />
-                <ListView Width="100" Margin="10, 0, 0, 0">
-                    <ListViewItem>
-                        Nederlands
-                    </ListViewItem>
-                    <ListViewItem>
-                        English
-                    </ListViewItem>
-                </ListView>
                 <TextBlock x:Name="UserNameBox" Text="Preferred Username" />
                 <TextBox x:Name="PreferredUserNameBox" />
                 <TextBlock x:Name="PrefColorBox" Text="Preferred Color" />

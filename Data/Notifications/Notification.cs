@@ -13,14 +13,11 @@ using Windows.UI.Xaml.Media;
 
 namespace BallDrive.Data.Notifications
 {
-    public class Notification
+    public static class Notification
     {
-        public Notification()
-        {
-        }
         
 
-        public string standardNotification(string title, string message)
+        public static string standardNotification(string title, string message)
         {
             return $@"
             <toast activationType='foreground' launch='args'>
@@ -34,7 +31,7 @@ namespace BallDrive.Data.Notifications
 
         }
 
-        public string messageWithImageNotification(string title, string message, Image image)
+        public static string messageWithImageNotification(string title, string message, Image image)
         {
             return $@"
             <toast activationType='forground' launch='args'>
@@ -46,17 +43,25 @@ namespace BallDrive.Data.Notifications
             </toast>";
         }
 
-        public void sendNote(string content)
+        public static void sendNote(string content)
         {
 
             // Notificatie moet in een XML formaat aangeleverd worden
             XmlDocument doc = new XmlDocument();
             // Onze XAML code erin zetten
             doc.LoadXml(content);
-            // Inladen in een toast notificatie (Standaard in Windows 10)
-            ToastNotification notification = new ToastNotification(doc);
+            // Get current active notifications and merge them with new one
+            foreach (ToastNotification note in ToastNotificationManager.History.GetHistory())
+            {
+                //doc.GetXml().
+
+            }
+            // Remove current active notifications (Should be only 1)
+            ToastNotificationManager.History.Clear();
             // Toast Manager aanmaken, oproepen en bewaren
             ToastNotifier notifier = ToastNotificationManager.CreateToastNotifier();
+            // Inladen in een toast notificatie (Standaard in Windows 10)
+            ToastNotification notification = new ToastNotification(doc);
             notification.Activated += Notification_Activated;
             
             // Notificatie aanleveren aan manager, de manager toont vervolgens de notificatie
@@ -64,7 +69,7 @@ namespace BallDrive.Data.Notifications
         }
 
 
-        private async void Notification_Activated(ToastNotification sender, object args)
+        private static async void Notification_Activated(ToastNotification sender, object args)
         {
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
             {

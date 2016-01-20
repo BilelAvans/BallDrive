@@ -56,7 +56,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
         </StackPanel>
+        <TextBlock Text="Doubletap Screen to Leave" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
     </Grid>
 </Page>
