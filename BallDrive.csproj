@@ -137,6 +137,9 @@
     <Compile Include="Data\PopupQueue.cs" />
     <Compile Include="Data\Scores\HighScore.cs" />
     <Compile Include="Data\Scores\ScoreDB.cs" />
+    <Compile Include="GameInfoPage.xaml.cs">
+      <DependentUpon>GameInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameView.xaml.cs">
       <DependentUpon>GameView.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,7 @@
   <ItemGroup>
     <Content Include="Assets\bomb-20x20.png" />
     <Content Include="Assets\bomb-30x31.png" />
+    <Content Include="Assets\infoicon-31x-31x.png" />
     <Content Include="Assets\pause.png" />
     <Content Include="Assets\play.png" />
     <Content Include="Assets\plus.png" />
@@ -185,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BallDriveInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

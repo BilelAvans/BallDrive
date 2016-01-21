@@ -142,6 +142,11 @@ namespace BallDrive.Data.Characters
 
         }
 
+        ~Character()
+        {
+            removeAllHandlers();
+        }
+
         public void removeAllHandlers()
         {
             if (PropertyChanged != null)

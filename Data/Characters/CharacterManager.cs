@@ -45,7 +45,7 @@ namespace BallDrive.Data.Characters
             // Other characters/Enemies
             Characters = new ObservableCollection<Character>();
             aniMan = new AnimationManager();
-            addTestValues(6);
+            //addTestValues(6);
             //Characters.Add(new StarModeItem(100, 100));          
 
         }
@@ -117,7 +117,10 @@ namespace BallDrive.Data.Characters
                     else if (ch is Item)
                     {
                         if (ch is StarModeItem)
+                        {
                             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.MULTIPLYER_X10_BONUS;
+                            CurrentCharacter.Multi.MP = 10;
+                        }
                         else if (ch is MultiplyerEnhancerItem)
                             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.DOUBLE_POINTS;
 
@@ -134,7 +137,9 @@ namespace BallDrive.Data.Characters
 
         private async void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            // 5 seconden wachten
             await Task.Delay(TimeSpan.FromSeconds(5));
+            // Alles terugzetten
             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.NO_BONUS;
             CurrentCharacter.Multi.MP = 5;
         }

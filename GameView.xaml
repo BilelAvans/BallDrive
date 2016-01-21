@@ -52,9 +52,10 @@
                     </ItemsControl.ItemTemplate>
                 </-->
             </Canvas>
-            <Image x:Name="CloseButton" PointerPressed="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 0, 5" Source="/Assets/stop.png" Width="30" Height="30"></Image>
-            <Image x:Name="resetButton" PointerPressed="resetButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 35, 5" Source="/Assets/refresh.png" Width="30" Height="30"></Image>
+            <Image x:Name="CloseButton" PointerPressed="CloseButton_Click"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 0, 5" Source="/Assets/stop.png" Width="30" Height="30" />
+            <Image x:Name="resetButton" PointerPressed="resetButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 35, 5" Source="/Assets/refresh.png" Width="30" Height="30" />
             <Image x:Name="pauseStatusImage" Source="/Assets/pause.png" Width="30" Height="30" PointerPressed="pauseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 67, 5"/>
+            <!--Image x:Name="infoButton" Source="/Assets/infoicon-31x-31x.png" Width="31" Height="30" PointerPressed="infoButton_PointerPressed" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" /-->
         </Grid>
     </Grid>
     <!--

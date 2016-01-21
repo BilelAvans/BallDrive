@@ -28,7 +28,7 @@ namespace BallDrive.Data.Characters
         private Multiplyer multi;
         public Multiplyer Multi { get { return multi; } set { this.multi = value; Changed("Multi"); Changed("Speed"); } }
 
-        public new int Speed { get { return (int)multi.MP * 3; } }
+        public new int Speed { get { return (int)multi.MP * 5; } }
 
         public string Name { get; set; } = "Bob";
 
@@ -57,6 +57,7 @@ namespace BallDrive.Data.Characters
         public void addPoints(int amount)
         {
             points += amount;
+            Changed("Speed");
         }
 
         public async void addToLastPositions(Position p)

@@ -17,13 +17,15 @@ namespace BallDrive.Data.Controls
         // game total run time
         public TimeSpan gameTimeLength { get; set; }
         // game difficulty
-        public DIFFICULTY difficulty { get; set; }
+        public DIFFICULTY difficulty { get; private set; }
 
-        public TimeSpan timeToLiveCharacters;
+        public TimeSpan timeToLiveCharacters { get; private set; }
 
-        public TimeSpan reduceSpawnTimePerHit;
+        public TimeSpan reduceSpawnTimePerHit { get; private set; }
 
-        public TimeSpan specialPowerSpawnTime;
+        public TimeSpan specialPowerSpawnTime { get; set; }
+
+        public TimeSpan initRespawnTime { get; private set; }
 
         private DifficultySettings(DIFFICULTY difficulty)
         {
@@ -40,20 +42,22 @@ namespace BallDrive.Data.Controls
                     gameTimeLength        = TimeSpan.FromSeconds(45);
                     reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(1);
                     specialPowerSpawnTime = TimeSpan.FromSeconds(12);
+                    initRespawnTime       = TimeSpan.FromSeconds(3);
                     break;
                 case DIFFICULTY.NORMAL:
                     timeToLiveCharacters = TimeSpan.FromSeconds(11);
                     gameTimeLength = TimeSpan.FromSeconds(75);
                     reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(2);
                     specialPowerSpawnTime = TimeSpan.FromSeconds(15);
+                    initRespawnTime = TimeSpan.FromSeconds(2);
                     break;
                 case DIFFICULTY.HARD:
                     timeToLiveCharacters = TimeSpan.FromSeconds(8);
                     gameTimeLength       = TimeSpan.FromSeconds(100);
-                    reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(3);
+                    reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(1.5);
                     specialPowerSpawnTime = TimeSpan.FromSeconds(20);
+                    initRespawnTime       = TimeSpan.FromSeconds(1.75);
                     break;
-
             }
         }
 

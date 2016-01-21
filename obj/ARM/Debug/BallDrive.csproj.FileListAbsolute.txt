@@ -435,3 +435,8 @@ C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\BallDriveInfoPage.g.cs
 C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\BallDriveInfoPage.xaml
 C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\BallDriveInfoPage.xbf
 C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\BallDrive.csprojResolveAssemblyReference.cache
+C:\Users\Bilel\Source\Repos\BallDrive\bin\ARM\Debug\GameInfoPage.xbf
+C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.g.i.cs
+C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.g.cs
+C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.xaml
+C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.xbf

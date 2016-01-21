@@ -53,7 +53,10 @@ namespace BallDrive
         {
             this.kHandler = new KeyHandler();
             this.gHandler = new AccelHandler();
-            this.gHandler.A.ReadingChanged += A_ReadingChanged;
+
+            if (gHandler.A != null)
+                this.gHandler.A.ReadingChanged += A_ReadingChanged;
+
             this.lastSpecialSpawn = DateTime.Now;
 
             this.InitializeComponent();
@@ -93,28 +96,28 @@ namespace BallDrive
             BackgroundWorker workingGuy = (BackgroundWorker)sender;
             while (workingGuy.CancellationPending == false)
             {
-                
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
-                {
-                    if (!isPaused)
-                    {
-                        NPC npc = CharacterFactory.Random(400, 600);
-                        npc.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
-                        CurrentGame.CMan.Characters.Add(npc);
-                    }
-                });
-                
-                CurrentGame.RespawnSpeed -= CurrentGame.Difficulty.reduceSpawnTimePerHit;
-                CurrentGame.Difficulty.specialPowerSpawnTime += CurrentGame.Difficulty.reduceSpawnTimePerHit;
-
-                if (DateTime.Now - lastSpecialSpawn > CurrentGame.Difficulty.specialPowerSpawnTime)
+                if (!isPaused && CurrentGame.CMan.Characters.Count < 30)
                 {
                     await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
                     {
-                        Item item = CharacterFactory.RandomItem(400, 600);
-                        item.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
-                        CurrentGame.CMan.Characters.Add(item);
-                        lastSpecialSpawn = DateTime.Now;
+                        // Nieuwe vijand maken
+                        NPC npc = CharacterFactory.Random(400, 600);
+                        npc.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
+                        CurrentGame.CMan.Characters.Add(npc);
+                        // Sneller nieuwe enemies aanmaken
+                        CurrentGame.RespawnSpeed -= CurrentGame.Difficulty.reduceSpawnTimePerHit;
+                        // Trager nieuwe bonussen neerzetten
+                        CurrentGame.Difficulty.specialPowerSpawnTime += CurrentGame.Difficulty.reduceSpawnTimePerHit;
+                        // Moeten we een bonus object neerzetten?
+                        if (DateTime.Now - lastSpecialSpawn > CurrentGame.Difficulty.specialPowerSpawnTime)
+                        {
+                            // Item aanmaken
+                            Item item = CharacterFactory.RandomItem(400, 600);
+                            item.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
+                            CurrentGame.CMan.Characters.Add(item);
+                            // Tijd registreren
+                            lastSpecialSpawn = DateTime.Now;
+                        }
                     });
                 }
                 await Task.Delay(CurrentGame.RespawnSpeed);
@@ -156,7 +159,8 @@ namespace BallDrive
         {
             // Remove our listeners
             CurrentGame.GameEvent -= CurrentGame_GameEvent;
-            gHandler.A.ReadingChanged -= A_ReadingChanged;
+            if (gHandler.A != null)
+                gHandler.A.ReadingChanged -= A_ReadingChanged;
             worker.DoWork -= Worker_DoWork;
             worker.CancelAsync();
 
@@ -215,9 +219,7 @@ namespace BallDrive
                 CurrentGame.GameEvent -= CurrentGame_GameEvent;
                 gHandler.A.ReadingChanged -= A_ReadingChanged;
                 worker.CancelAsync();
-                Image im = (Image)sender;
-                im.Source = new BitmapImage(new Uri("ms-appx:///Assets/play.png"));
-                
+                ((Image)sender).Source = new BitmapImage(new Uri("ms-appx:///Assets/play.png"));
             }
             else {
                 CurrentGame.Difficulty.gameTimeLength += DateTime.Now - lastPause;
@@ -225,11 +227,13 @@ namespace BallDrive
                 CurrentGame.GameEvent += CurrentGame_GameEvent;
                 gHandler.A.ReadingChanged += A_ReadingChanged;
                 worker.RunWorkerAsync();
-                Image im = (Image)sender;
-                im.Source = new BitmapImage(new Uri("ms-appx:///Assets/pause.png"));
-
+                ((Image)sender).Source = new BitmapImage(new Uri("ms-appx:///Assets/pause.png"));
             }
         }
-        
+
+        private void infoButton_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GameInfoPage), "game");
+        }
     }
 }

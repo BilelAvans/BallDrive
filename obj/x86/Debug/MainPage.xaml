@@ -8,13 +8,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:ConnectionId='1' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"                      >
         <!-- Our visual States -->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.Setters>
-                        <Setter Target="mainMenuBlock.Text" Value="Main Menu Extended"/>
+                        <Setter Target="mainMenuBlock.Text" Value="Welcome to BallDrive"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowHeight="1" MinWindowWidth="0" />
@@ -26,10 +26,14 @@
             <StackPanel.Resources>
                 <data:PopupQueue x:Key="Queue"/>
             </StackPanel.Resources>
-            <TextBlock x:ConnectionId='1'  x:Name="mainMenuBlock"      Text=   "Main Menu"     HorizontalAlignment="Left"      VerticalAlignment="Top" Margin="30, 20, 0, 0"    />
-            <Button x:ConnectionId='2'     Content="Start Game"        Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 100, 0, 0"                       />
-            <Button x:ConnectionId='3'     Content="Exit"              Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"                    />
+            <TextBlock x:ConnectionId='2'  x:Name="mainMenuBlock"      Text=   "Main Menu"     HorizontalAlignment="Left"      VerticalAlignment="Top" Margin="30, 20, 0, 0"    />
+            <Button x:ConnectionId='3'     Content="Start Game"        Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 100, 0, 0"                       />
+            <Button x:ConnectionId='4'     Content="How To Play"        Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"                       />
+            <Button x:ConnectionId='5'     Content="Settings"          Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"                   />
+            <Button x:ConnectionId='6'     Content="Exit"              Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"                    />
         </StackPanel>
     </Grid>
+
 </Page>
+    
 
