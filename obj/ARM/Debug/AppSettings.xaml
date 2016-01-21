@@ -25,6 +25,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
+            <TextBlock Text="Double tap to leave" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
         </Grid>
     </Grid>
 </Page>

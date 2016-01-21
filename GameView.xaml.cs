@@ -96,27 +96,25 @@ namespace BallDrive
                 
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
                 {
-                    if (!isPaused)
+                    if (!isPaused && CurrentGame.CMan.Characters.Count < 30)
                     {
                         NPC npc = CharacterFactory.Random(400, 600);
                         npc.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
                         CurrentGame.CMan.Characters.Add(npc);
+
+                        CurrentGame.RespawnSpeed -= CurrentGame.Difficulty.reduceSpawnTimePerHit;
+                        CurrentGame.Difficulty.specialPowerSpawnTime += CurrentGame.Difficulty.reduceSpawnTimePerHit;
+
+                        if (DateTime.Now - lastSpecialSpawn > CurrentGame.Difficulty.specialPowerSpawnTime)
+                        {
+                            Item item = CharacterFactory.RandomItem(400, 600);
+                            item.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
+                            CurrentGame.CMan.Characters.Add(item);
+                            lastSpecialSpawn = DateTime.Now;
+                        }
+                        
                     }
                 });
-                
-                CurrentGame.RespawnSpeed -= CurrentGame.Difficulty.reduceSpawnTimePerHit;
-                CurrentGame.Difficulty.specialPowerSpawnTime += CurrentGame.Difficulty.reduceSpawnTimePerHit;
-
-                if (DateTime.Now - lastSpecialSpawn > CurrentGame.Difficulty.specialPowerSpawnTime)
-                {
-                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
-                    {
-                        Item item = CharacterFactory.RandomItem(400, 600);
-                        item.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
-                        CurrentGame.CMan.Characters.Add(item);
-                        lastSpecialSpawn = DateTime.Now;
-                    });
-                }
                 await Task.Delay(CurrentGame.RespawnSpeed);
             }
 
@@ -215,9 +213,7 @@ namespace BallDrive
                 CurrentGame.GameEvent -= CurrentGame_GameEvent;
                 gHandler.A.ReadingChanged -= A_ReadingChanged;
                 worker.CancelAsync();
-                Image im = (Image)sender;
-                im.Source = new BitmapImage(new Uri("ms-appx:///Assets/play.png"));
-                
+                ((Image)sender).Source = new BitmapImage(new Uri("ms-appx:///Assets/play.png"));
             }
             else {
                 CurrentGame.Difficulty.gameTimeLength += DateTime.Now - lastPause;
@@ -225,11 +221,13 @@ namespace BallDrive
                 CurrentGame.GameEvent += CurrentGame_GameEvent;
                 gHandler.A.ReadingChanged += A_ReadingChanged;
                 worker.RunWorkerAsync();
-                Image im = (Image)sender;
-                im.Source = new BitmapImage(new Uri("ms-appx:///Assets/pause.png"));
-
+                ((Image)sender).Source = new BitmapImage(new Uri("ms-appx:///Assets/pause.png"));
             }
         }
-        
+
+        private void infoButton_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GameInfoPage), "game");
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace BallDrive.Data.Games
 
         public DifficultySettings Difficulty;
         // Start repawn speed at 1 second
-        public TimeSpan RespawnSpeed { get; set; } = TimeSpan.FromMilliseconds(1000);
+        public TimeSpan RespawnSpeed { get; set; } 
 
         public CharacterManager CMan { get; set; }
 
@@ -36,6 +36,7 @@ namespace BallDrive.Data.Games
             CMan = new CharacterManager();
             this.Difficulty = diffSettings;
             this.startTime = DateTime.Now;
+            this.RespawnSpeed = diffSettings.initRespawnTime;
         }
 
         public void runOnce()

@@ -348,6 +348,9 @@
     <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\bomb-30x31.png">
       <PackagePath>Assets\bomb-30x31.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\infoicon-31x-31x.png">
+      <PackagePath>Assets\infoicon-31x-31x.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\pause.png">
       <PackagePath>Assets\pause.png</PackagePath>
     </AppxPackagedFile>

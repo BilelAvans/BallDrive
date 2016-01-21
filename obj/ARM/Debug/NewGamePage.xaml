@@ -15,7 +15,7 @@
                 <ListBoxItem Content="CollisionDrive" />
             </ListBox>
             <TextBlock Padding="20, 10, 0, 0" Text="Difficulty" />
-            <ListBox x:ConnectionId='8' x:Name="diffSelection" Padding="0, 10, 0, 0" Width="175" Height="50">
+            <ListBox x:ConnectionId='8' x:Name="diffSelection" Padding="0, 10, 0, 0" Width="175">
                 <ListBoxItem Content="Easy" />
                 <ListBoxItem Content="Normal" />
                 <ListBoxItem Content="Hard" />

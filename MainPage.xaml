@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Tapped="Grid_Tapped" >
         <!-- Our visual States -->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -28,6 +28,7 @@
             </StackPanel.Resources>
             <TextBlock  x:Name="mainMenuBlock"      Text=   "Main Menu"     HorizontalAlignment="Left"      VerticalAlignment="Top" Margin="30, 20, 0, 0"    />
             <Button     Content="Start Game"        Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 100, 0, 0"  Click="startNewGame" />
+            <Button     Content="How To Play"        Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"  Click="Button_Click" />
             <Button     Content="Settings"          Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"  Click="settings" />
             <Button     Content="Exit"              Width="100"             HorizontalAlignment="Center"    VerticalAlignment="Top" Margin="0, 20, 0, 0"   Click="exitGame" />
         </StackPanel>

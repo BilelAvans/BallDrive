@@ -45,7 +45,13 @@ namespace BallDrive.Data.Games
             if (!(MP + 1 > MAX_MULTIPLYER))
                 MP += 1;
 
+            if (MPBonus == multiplyerBonus.DOUBLE_POINTS)
+                return (int)(DEFAULT_POINTS_PER_HIT * getMultiplyerPoints() * 2);
+            else if (MPBonus == multiplyerBonus.TRIPLE_POINTS)
+                return (int)(DEFAULT_POINTS_PER_HIT * getMultiplyerPoints() * 3);
+            // Default ammount of points gained
             return (int)(DEFAULT_POINTS_PER_HIT * getMultiplyerPoints());
+
         }
         // Decrement multiplyer
         public void Decrement()

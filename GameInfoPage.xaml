@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="BallDrive.GameInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BallDrive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Tapped="Grid_Tapped">
+        <StackPanel>
+            <TextBlock Margin="10, 10, 0, 0"    Text="In a Nutshell" />
+            <TextBlock Margin="10, 20, 0, 0"    FontSize="11" FontFamily="Verdana" Text="Move your phone it's center and the ball will move accordingly." />
+            <TextBlock Margin="10, 0, 0, 0"     FontSize="11" FontFamily="Verdana" Text="Hit the objects to activate their effect." />
+            <TextBlock Margin="10, 15, 0, 0"     FontSize="11" FontFamily="Verdana" Text="Objects" />
+            <StackPanel Orientation="Horizontal" Margin="10, 10, 0, 0">
+                <Ellipse Fill="Cyan" Width="30" Height="30" />
+                <TextBlock Text="Ball" Margin="10,0,0,0" FontSize="11" FontFamily="Verdana"/>
+                <TextBlock Text="Doesn't move just hit it to gain points." Margin="5, 0, 0, 0" FontSize="11" FontFamily="Verdana" Width="268"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0" >
+                <Ellipse Fill="Red" Width="30" Height="30" />
+                <TextBlock Text="Moving Ball" Width="65" FontSize="11" FontFamily="Verdana" />
+                <TextBlock Text="Moves, Catch it before it leaves the field" Margin="5, 0, 0, 0" Height="50" Width="201" FontSize="11" FontFamily="Verdana"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0">
+                <Image Source="/Assets/bomb-30x31.png" Width="30" Height="30" />
+                <TextBlock Text="Bomb" RenderTransformOrigin="1.752,0.267" FontSize="11" FontFamily="Verdana"  />
+                <TextBlock Text="Avoid! Will decrease your points by 20%." Margin="5, 0, 0, 0" FontSize="11" FontFamily="Verdana"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0">
+                <Image Source="/Assets/star.png" Width="30" Height="30" />
+                <TextBlock Text="Star Multiplyer" FontSize="11" FontFamily="Verdana"/>
+                <TextBlock Text="5 second x10 Multiplyer Boost." Margin="5, 0, 0, 0" FontSize="11" FontFamily="Verdana"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0">
+                <Image Source="/Assets/plus.png" Width="30" Height="30" />
+                <TextBlock Text="Double points Bonus" FontSize="11" FontFamily="Verdana" />
+                <TextBlock Text="Doubles your gained points for 5 seconds." Margin="5, 0, 0, 0" FontSize="11" FontFamily="Verdana" />
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Text="Doubletap Screen to Leave" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11" FontFamily="Verdana" />
+    </Grid>
+</Page>

@@ -25,6 +25,8 @@ namespace BallDrive.Data.Controls
 
         public TimeSpan specialPowerSpawnTime;
 
+        public TimeSpan initRespawnTime;
+
         private DifficultySettings(DIFFICULTY difficulty)
         {
             this.difficulty     = difficulty;
@@ -40,18 +42,21 @@ namespace BallDrive.Data.Controls
                     gameTimeLength        = TimeSpan.FromSeconds(45);
                     reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(1);
                     specialPowerSpawnTime = TimeSpan.FromSeconds(12);
+                    initRespawnTime       = TimeSpan.FromSeconds(3);
                     break;
                 case DIFFICULTY.NORMAL:
                     timeToLiveCharacters = TimeSpan.FromSeconds(11);
                     gameTimeLength = TimeSpan.FromSeconds(75);
                     reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(2);
                     specialPowerSpawnTime = TimeSpan.FromSeconds(15);
+                    initRespawnTime = TimeSpan.FromSeconds(2);
                     break;
                 case DIFFICULTY.HARD:
                     timeToLiveCharacters = TimeSpan.FromSeconds(8);
                     gameTimeLength       = TimeSpan.FromSeconds(100);
                     reduceSpawnTimePerHit = TimeSpan.FromMilliseconds(3);
                     specialPowerSpawnTime = TimeSpan.FromSeconds(20);
+                    initRespawnTime = TimeSpan.FromSeconds(1.5);
                     break;
 
             }
