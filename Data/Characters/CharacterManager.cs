@@ -137,7 +137,9 @@ namespace BallDrive.Data.Characters
 
         private async void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            // 5 seconden wachten
             await Task.Delay(TimeSpan.FromSeconds(5));
+            // Alles terugzetten
             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.NO_BONUS;
             CurrentCharacter.Multi.MP = 5;
         }

@@ -9,8 +9,8 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>c43ca138-1477-49c5-9197-24adc9e9de4e</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>0E36A8D1C03FB1829A002B09C2682112768E9AAD65D2D017BE93FF69337C94FD</RegisteredManifestChecksum>
+    <IntermediateOutputPath>C:\Users\Bilel\Source\Repos\BallDrive\obj\x86\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>1C15A6D22634EC94E8DE6765DB57F205A7F2933C6F2B6EFF87D48672B94B42BD</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>c43ca138-1477-49c5-9197-24adc9e9de4e_1.0.0.0_x86__f0sg4s7mn64ym</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>c43ca138-1477-49c5-9197-24adc9e9de4e_f0sg4s7mn64ym!App</RegisteredUserModeAppID>
     <RegisteredPackageID>c43ca138-1477-49c5-9197-24adc9e9de4e</RegisteredPackageID>
@@ -19,16 +19,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-30T23:04:51.777</Modified>
+      <Modified>2016-01-21T20:15:48.892</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\bin\x86\Debug\BallDrive.exe">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\x86\Debug\BallDrive.exe">
       <PackagePath>entrypoint\BallDrive.exe</PackagePath>
-      <Modified>2015-12-30T23:04:49.721</Modified>
+      <Modified>2016-01-21T20:15:48.498</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Bilel\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -454,63 +454,99 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-11-20T20:07:28.053</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2015-12-14T09:00:51.464</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2015-12-14T09:00:40.542</Modified>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\bomb-20x20.png">
+      <PackagePath>Assets\bomb-20x20.png</PackagePath>
+      <Modified>2016-01-11T10:00:56.873</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\bomb-30x31.png">
+      <PackagePath>Assets\bomb-30x31.png</PackagePath>
+      <Modified>2016-01-11T10:01:19.587</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\infoicon-31x-31x.png">
+      <PackagePath>Assets\infoicon-31x-31x.png</PackagePath>
+      <Modified>2016-01-20T16:47:59.572</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\pause.png">
+      <PackagePath>Assets\pause.png</PackagePath>
+      <Modified>2016-01-16T21:24:04.566</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\play.png">
+      <PackagePath>Assets\play.png</PackagePath>
+      <Modified>2016-01-16T21:18:54.765</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\plus.png">
+      <PackagePath>Assets\plus.png</PackagePath>
+      <Modified>2016-01-14T21:13:55.357</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\refresh.png">
+      <PackagePath>Assets\refresh.png</PackagePath>
+      <Modified>2016-01-16T21:32:59.896</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\star.png">
+      <PackagePath>Assets\star.png</PackagePath>
+      <Modified>2016-01-14T21:11:22.814</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\stop.png">
+      <PackagePath>Assets\stop.png</PackagePath>
+      <Modified>2016-01-16T21:49:01.737</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-10-10T20:09:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\bin\x86\Debug\BallDrive.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2015-12-14T09:00:40.542</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\x86\Debug\BallDrive.xr.xml">
       <PackagePath>BallDrive.xr.xml</PackagePath>
-      <Modified>2015-12-30T01:27:36.095</Modified>
+      <Modified>2016-01-21T19:54:25.896</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2015-12-07T20:49:58.675</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-30T23:04:51.333</Modified>
+      <Modified>2016-01-21T20:09:24.851</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\documents\visual studio 2015\Projects\BallDrive\BallDrive\bin\x86\Debug\Core\BallDrive.exe">
+    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\x86\Debug\Core\BallDrive.exe">
       <PackagePath>BallDrive.exe</PackagePath>
-      <Modified>2015-12-30T23:04:51.771</Modified>
+      <Modified>2016-01-21T20:15:48.891</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -23,8 +23,6 @@ namespace BallDrive
     public sealed partial class GameInfoPage : Page
     {
 
-        private string cameFrom;
-
         public GameInfoPage()
         {
             this.InitializeComponent();
@@ -38,9 +36,6 @@ namespace BallDrive
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            if (e.Parameter != null)
-                cameFrom = (string)e.Parameter;
         }
     }
 }
