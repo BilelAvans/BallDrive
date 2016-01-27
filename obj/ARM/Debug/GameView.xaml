@@ -13,17 +13,20 @@
 
     <Grid x:ConnectionId='2' x:Name="gridje" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
+            <Storyboard x:ConnectionId='3' x:Name="enemyDiedAnimation">
+                <DoubleAnimation x:ConnectionId='4' Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:3" BeginTime="0:0:0"                                         />
+            </Storyboard>
             <chars:DoubleToMultiplyerString x:Key="DoubToMPStr" />
             <chars:ColorToColorBrushConverter x:Key="colorConv" />
             <g:toMinuteSecondFormatConverter x:Key="toTimeConv" />
         </Grid.Resources>
-        <Grid x:ConnectionId='3'                                   >
+        <Grid x:ConnectionId='5'                                   >
             <TextBlock Text="{Binding CMan.CurrentCharacter.Name}" Margin="20, 10, 0, 0" />
             <TextBlock Text="{Binding CMan.CurrentCharacter.Points}" Margin="80, 10,0,0" />
             <TextBlock Text="{Binding CMan.CurrentCharacter.Multi.MP, Converter={StaticResource DoubToMPStr}}" Margin="120, 10, 0, 0" />
             <TextBlock Text="{Binding TimeLeft, Converter={StaticResource toTimeConv}}" HorizontalAlignment="Right" Margin="0, 10, 20, 0" />
-            <Canvas x:ConnectionId='4' Name="GamePanel" Margin="0, 10, 0, 0">
-                <Ellipse x:ConnectionId='8' x:Name="PlayerEllipse" DataContext="{Binding CMan.CurrentCharacter}" Fill="{Binding brush, Converter={StaticResource colorConv}}" Canvas.Left="{Binding Position.X}" Canvas.Top="{Binding Position.Y}" Width="{Binding Size}" Height="{Binding Size}"/>
+            <Canvas x:ConnectionId='6' Name="GamePanel" Margin="0, 10, 0, 0">
+                <Ellipse x:ConnectionId='10' x:Name="PlayerEllipse" DataContext="{Binding CMan.CurrentCharacter}" Fill="{Binding brush, Converter={StaticResource colorConv}}" Canvas.Left="{Binding Position.X}" Canvas.Top="{Binding Position.Y}" Width="{Binding Size}" Height="{Binding Size}"/>
                 <ItemsControl ItemsSource="{Binding CMan.CurrentCharacter.LastPositions}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -33,7 +36,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                <ItemsControl x:ConnectionId='9'                                                   >
+                <ItemsControl x:ConnectionId='11'                                                   >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -52,9 +55,9 @@
                     </ItemsControl.ItemTemplate>
                 </-->
             </Canvas>
-            <Image x:ConnectionId='5' x:Name="CloseButton"                                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 0, 5" Source="/Assets/stop.png" Width="30" Height="30" />
-            <Image x:ConnectionId='6' x:Name="resetButton"                                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 35, 5" Source="/Assets/refresh.png" Width="30" Height="30" />
-            <Image x:ConnectionId='7' x:Name="pauseStatusImage" Source="/Assets/pause.png" Width="30" Height="30"                                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 67, 5"/>
+            <Image x:ConnectionId='7' x:Name="CloseButton"                                     HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 0, 5" Source="/Assets/stop.png" Width="30" Height="30" />
+            <Image x:ConnectionId='8' x:Name="resetButton"                                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 35, 5" Source="/Assets/refresh.png" Width="30" Height="30" />
+            <Image x:ConnectionId='9' x:Name="pauseStatusImage" Source="/Assets/pause.png" Width="30" Height="30"                                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0, 0, 67, 5"/>
             <!--Image x:Name="infoButton" Source="/Assets/infoicon-31x-31x.png" Width="31" Height="30" PointerPressed="infoButton_PointerPressed" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,5,0" /-->
         </Grid>
     </Grid>

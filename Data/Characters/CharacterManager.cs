@@ -5,13 +5,15 @@ using System.ComponentModel;
 using Windows.ApplicationModel.Core;
 using System.Linq;
 using BallDrive.Data.Games;
-using System.Diagnostics;
 using BallDrive.Data.Characters.Enemies;
 using Windows.Storage;
 using Windows.UI;
 using BallDrive.Data.Characters.Animations;
 using BallDrive.Data.Characters.Items;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Shapes;
+using Windows.UI.Xaml;
 
 namespace BallDrive.Data.Characters
 {
@@ -52,18 +54,17 @@ namespace BallDrive.Data.Characters
 
         public void moveCurrentCharacter()
         {
-            runMoving();
             findCollision();
             removeLifeless();
-            aniMan.runAnimationsOnce();
+            //aniMan.runAnimationsOnce();
         }
 
         public void findCollision()
         {
             try
             {
+                // Wat hebben we geraakt?
                 List<Character> chas = Characters.Where(ch => ch.overlapsCircle(CurrentCharacter) == true).ToList();
-                    
                 // Collisions verwijderen
                 enemyShot(chas);
             }
@@ -72,6 +73,7 @@ namespace BallDrive.Data.Characters
 
         public async void removeLifeless()
         {
+            // Alle characters verwijderen die x periode op veld zijn
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
             {
                 Characters.Where(character => character is NPC).Cast<NPC>().ToList()
@@ -107,6 +109,7 @@ namespace BallDrive.Data.Characters
             {
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
                 {
+                    // Wat hebben we geraakt en wat doen we ermee?
                     if (ch is BombNPC)
                     {
                         CurrentCharacter.Multi.Clear();
@@ -124,22 +127,34 @@ namespace BallDrive.Data.Characters
                         else if (ch is MultiplyerEnhancerItem)
                             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.DOUBLE_POINTS;
 
+                        // Run seperate worker to set effect for 5 minutes
                         BackgroundWorker worker = new BackgroundWorker();
                         worker.DoWork += Worker_DoWork;
                         worker.RunWorkerAsync();
                     }
-                    
                     Characters.Remove(ch);
-                    ch.removeAllHandlers();
                 });
             }
         }
 
+        private void Da_Completed(object sender, object e)
+        {
+            DoubleAnimation da = (DoubleAnimation)sender;
+        }
+
         private async void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            Color originalColor = CurrentCharacter.currentColor;
             // 5 seconden wachten
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            DateTime now = DateTime.Now;
+            while (DateTime.Now - now < TimeSpan.FromSeconds(5))
+            {
+                if (CurrentCharacter.Multi.MPBonus == Multiplyer.multiplyerBonus.MULTIPLYER_X10_BONUS)
+                    CurrentCharacter.currentColor = Color.FromArgb(255, (byte)new Random().Next(255), (byte)new Random().Next(255), (byte)new Random().Next(255));
+                await Task.Delay(250);
+            }
             // Alles terugzetten
+            CurrentCharacter.currentColor = originalColor;
             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.NO_BONUS;
             CurrentCharacter.Multi.MP = 5;
         }

@@ -111,9 +111,21 @@
       <RootProperty Name="DataContext" />
     </RootType>
     <RootType FullName="BallDrive.GameInfoPage" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
+      <RootProperty Name="Children" />
+      <RootMethod Name="GetTargetProperty" />
+      <RootMethod Name="SetTargetProperty" />
+    </RootType>
     <RootType FullName="BallDrive.Data.Characters.DoubleToMultiplyerString" />
     <RootType FullName="BallDrive.Data.Characters.ColorToColorBrushConverter" />
     <RootType FullName="BallDrive.Data.Games.toMinuteSecondFormatConverter" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.DoubleAnimation">
+      <RootProperty Name="From" />
+      <RootProperty Name="To" />
+      <RootProperty Name="Duration" />
+      <RootProperty Name="BeginTime" />
+      <RootEvent Name="Completed" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
       <RootProperty Name="Name" />
       <RootProperty Name="Margin" />

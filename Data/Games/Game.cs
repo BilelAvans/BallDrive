@@ -48,9 +48,11 @@ namespace BallDrive.Data.Games
         public void hasEnded()
         {
             Changed("TimeLeft");
-            RespawnSpeed -= Difficulty.reduceSpawnTimePerHit;
-            if (TimeLeft < TimeSpan.FromSeconds(0))
-                GameEvent(this, new EventArgs());
+            if (GameEvent != null)
+            {
+                if (TimeLeft < TimeSpan.FromSeconds(0))
+                    GameEvent(this, new EventArgs());
+            }
             
         }
 
@@ -70,9 +72,14 @@ namespace BallDrive.Data.Games
             removeAllHandlers();
         }
 
-        public void removeAllHandlers()
+        private void removeAllHandlers()
         {
-
+            if (PropertyChanged != null)
+            {
+                // Alle invokers afsluiten
+                PropertyChanged.GetInvocationList().ToList().ForEach(del => PropertyChanged -= (PropertyChangedEventHandler)del);
+                PropertyChanged = null;
+            }
         }
     }
 }
