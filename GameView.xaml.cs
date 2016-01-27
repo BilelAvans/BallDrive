@@ -1,27 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Sensors;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using BallDrive.Data.Games;
-using BallDrive.Data;
 using BallDrive.Data.Scores;
 using BallDrive.Data.Controls;
-using Windows.UI.ViewManagement;
 using BallDrive.Data.Characters;
 using System.ComponentModel;
-using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
@@ -29,6 +16,9 @@ using BallDrive.Data.Notifications;
 using BallDrive.Data.Characters.Enemies;
 using BallDrive.Data.Characters.Items;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Shapes;
+using System.Threading;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -44,6 +34,7 @@ namespace BallDrive
         private AccelHandler gHandler { get; set; }
 
         private BackgroundWorker worker { get; set; }
+        private DispatcherTimer timer { get; set; }
 
         private bool isPaused = false;
         private DateTime lastPause;
@@ -89,6 +80,14 @@ namespace BallDrive
             worker = new BackgroundWorker();
             worker.WorkerSupportsCancellation = true;
 
+            timer = new DispatcherTimer();
+            timer.Interval += TimeSpan.FromMilliseconds(1000 / 10);
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            CurrentGame.runOnce();
         }
 
         private async void Worker_DoWork(object sender, DoWorkEventArgs e)
@@ -96,6 +95,7 @@ namespace BallDrive
             BackgroundWorker workingGuy = (BackgroundWorker)sender;
             while (workingGuy.CancellationPending == false)
             {
+                // We houden het maximum bescheiden om geen resource denial te veroorzaken op onze mobiele telefoon
                 if (!isPaused && CurrentGame.CMan.Characters.Count < 30)
                 {
                     await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
@@ -132,7 +132,6 @@ namespace BallDrive
             if (CurrentGame != null)
             {
                 CurrentGame.CMan.CurrentCharacter.move(gHandler.Direction);
-                CurrentGame.runOnce();
             }
         }
 
@@ -151,18 +150,22 @@ namespace BallDrive
 
                 default: kHandler.registerKey(code); CurrentGame.CMan.CurrentCharacter.move(kHandler.Direction); break;
             }
-
-            CurrentGame.runOnce();
+            
         }
 
         private void endGame()
         {
             // Remove our listeners
             CurrentGame.GameEvent -= CurrentGame_GameEvent;
+           
+
             if (gHandler.A != null)
                 gHandler.A.ReadingChanged -= A_ReadingChanged;
+
             worker.DoWork -= Worker_DoWork;
             worker.CancelAsync();
+
+            timer.Stop();
 
             //CurrentGame.CMan.Close();
 
@@ -196,11 +199,17 @@ namespace BallDrive
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            CurrentGame = new BallCatcher(DifficultySettings.createByDifficulty((DifficultySettings.DIFFICULTY)e.Parameter));
+            if (e.Parameter != null)
+                CurrentGame = new BallCatcher(DifficultySettings.createByDifficulty((DifficultySettings.DIFFICULTY)e.Parameter));
+            else
+                CurrentGame = new BallCatcher(DifficultySettings.createByDifficulty(DifficultySettings.DIFFICULTY.EASY));
+
             CurrentGame.GameEvent += CurrentGame_GameEvent;
 
             worker.DoWork += Worker_DoWork;
             worker.RunWorkerAsync();
+
+            timer.Start();
 
             if (ApplicationData.Current.LocalSettings.Values["username"] != null)
                 CurrentGame.CMan.CurrentCharacter.Name = (string)ApplicationData.Current.LocalSettings.Values["username"];
@@ -219,7 +228,7 @@ namespace BallDrive
                 CurrentGame.GameEvent -= CurrentGame_GameEvent;
                 gHandler.A.ReadingChanged -= A_ReadingChanged;
                 worker.CancelAsync();
-                ((Image)sender).Source = new BitmapImage(new Uri("ms-appx:///Assets/play.png"));
+                timer.Stop();
             }
             else {
                 CurrentGame.Difficulty.gameTimeLength += DateTime.Now - lastPause;
@@ -227,13 +236,18 @@ namespace BallDrive
                 CurrentGame.GameEvent += CurrentGame_GameEvent;
                 gHandler.A.ReadingChanged += A_ReadingChanged;
                 worker.RunWorkerAsync();
-                ((Image)sender).Source = new BitmapImage(new Uri("ms-appx:///Assets/pause.png"));
+                timer.Start();
             }
         }
 
         private void infoButton_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(GameInfoPage), "game");
+        }
+
+        private void enemyDiedAnimation_Completed(object sender, object e)
+        {
+            enemyDiedAnimation.Stop();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace BallDrive.Data.Scores
                 StorageFile file = await ApplicationData.Current.LocalFolder.GetFileAsync("highscores.txt");
 
                 List<string> hcStrings = (await FileIO.ReadLinesAsync(file)).ToList();
-                Debug.WriteLine(hcStrings.Count);
+
                 foreach (string line in hcStrings)
                 {
                     string[] splitContent = line.Split(',');

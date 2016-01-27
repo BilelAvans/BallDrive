@@ -25,7 +25,7 @@ namespace BallDrive.Data.Characters
         public Position Position { get { return position; } set { position = value; Changed("Position"); } }
 
         private Color color = Colors.Black;
-        public Color currentColor { get { return color; } set { color = value; Changed("currentColor"); Changed("color"); } }
+        public Color currentColor { get { return color; } set { color = value; Changed("brush"); Changed("color"); } }
 
         public Brush brush { get { return new SolidColorBrush(color); } }
 
@@ -151,11 +151,9 @@ namespace BallDrive.Data.Characters
         {
             if (PropertyChanged != null)
             {
-                foreach (Delegate del in PropertyChanged.GetInvocationList())
-                {
-                    PropertyChanged -= (PropertyChangedEventHandler)del;
-                    PropertyChanged = null;
-                }
+                // Alle invokers afsluiten
+                PropertyChanged.GetInvocationList().ToList().ForEach(del => PropertyChanged -= (PropertyChangedEventHandler)del);
+                PropertyChanged = null;
             }
         }
         

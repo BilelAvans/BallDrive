@@ -13,6 +13,9 @@
 
     <Grid x:Name="gridje" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
+            <Storyboard x:Name="enemyDiedAnimation">
+                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:3" BeginTime="0:0:0" Completed="enemyDiedAnimation_Completed"/>
+            </Storyboard>
             <chars:DoubleToMultiplyerString x:Key="DoubToMPStr" />
             <chars:ColorToColorBrushConverter x:Key="colorConv" />
             <g:toMinuteSecondFormatConverter x:Key="toTimeConv" />
