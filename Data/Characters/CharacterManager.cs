@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml;
+using System.Diagnostics;
+using System.Threading;
 
 namespace BallDrive.Data.Characters
 {
@@ -34,6 +36,18 @@ namespace BallDrive.Data.Characters
         }
 
         public AnimationManager aniMan { get; set; }
+        
+
+        public ObservableCollection<BulletNPC> ShotsFired { get; set; } = new ObservableCollection<BulletNPC>();
+
+        public DateTime LastBulletRelease { get; set; } = DateTime.Now;
+
+        public TimeSpan BulletReleaseTimeSpan { get; set; } = TimeSpan.FromSeconds(1);
+        public TimeSpan BulletReleaseMaxTimeSpan { get; set; } = TimeSpan.FromSeconds(10);
+
+        public BackgroundWorker BulletReleaseThread = new BackgroundWorker();
+
+        public ObservableCollection<Tuple<Position, int, int>> PointGains { get; set; } = new ObservableCollection<Tuple<Position, int, int>>();
 
         // Create with empty user set
         public CharacterManager()
@@ -47,11 +61,12 @@ namespace BallDrive.Data.Characters
             // Other characters/Enemies
             Characters = new ObservableCollection<Character>();
             aniMan = new AnimationManager();
+            // Thread for shooting bullets
+            BulletReleaseThread.DoWork += DoShootBullets;
             //addTestValues(6);
             //Characters.Add(new StarModeItem(100, 100));          
 
         }
-
         public void moveCurrentCharacter()
         {
             findCollision();
@@ -63,12 +78,45 @@ namespace BallDrive.Data.Characters
         {
             try
             {
-                // Wat hebben we geraakt?
-                List<Character> chas = Characters.Where(ch => ch.overlapsCircle(CurrentCharacter) == true).ToList();
+                // Wat hebben we geraakt?  
+                List<Character> chas = Characters.Where(ch => ch.overlapsCircle(CurrentCharacter) == true || EnemiesHitByBullet(ch) == true).ToList();
                 // Collisions verwijderen
                 enemyShot(chas);
             }
             catch (InvalidOperationException e) { };
+        }
+
+        public void runLogic()
+        {
+            moveCurrentCharacter();
+            moveBullets();
+            iteratePointGains();
+        }
+
+        public void moveBullets()
+        {
+            if (ShotsFired.Count != 0)
+            {
+                ShotsFired.ToList().ForEach(shot =>
+                {
+                    shot.move();
+                });
+            }
+        }
+
+        public bool EnemiesHitByBullet(Character c){
+            //List<Character> enemiesShot = Characters.Where(ch => ShotsFired.Exists(shot => shot.overlapsCircle(ch))).ToList();
+            foreach (BulletNPC bullet in ShotsFired) {
+                if (bullet.overlapsCircle(c))
+                {
+                    // Remove bullet when it hits a first object
+                    ShotsFired.Remove(bullet);
+                    // return the character
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public async void removeLifeless()
@@ -76,11 +124,44 @@ namespace BallDrive.Data.Characters
             // Alle characters verwijderen die x periode op veld zijn
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
             {
+                
+                // Remove Non-decrement first
+                Characters.Where(chara => chara.lifecycleEnded() == true).ToList()
+                          .ForEach(ch2 => { ch2.removeAllHandlers(); Characters.Remove(ch2); });
+
                 Characters.Where(character => character is NPC).Cast<NPC>().ToList()
                           .Where(chara => chara.lifecycleEnded() == true).ToList()
                           .ForEach(ch2 => { ch2.removeAllHandlers(); Characters.Remove(ch2); CurrentCharacter.Multi.Decrement(); });
-
             });
+        }
+
+        public async void iteratePointGains()
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+            {
+            if (PointGains.Count != 0) {
+                PointGains.ToList().ForEach(kvp => {
+                    PointGains.Remove(kvp);
+                    if (kvp.Item3 >= 15)
+                    {
+                        // Change position max 15 times then disappear.
+                        // Do nufin, it's already removed. Just dont place it back again
+                    }
+                    else {
+                        // Alter position
+                        Position pos = kvp.Item1;
+                        pos.Y -= 5;
+                        // Alter iteration value (+1)
+                        int k = kvp.Item3;
+                        k++;
+                        Tuple<Position, int, int> newKVP = new Tuple<Position, int, int> (pos, kvp.Item2, k);
+                        PointGains.Add(newKVP);
+                    }
+                });
+                }
+            });
+
+
         }
 
         public async void runMoving()
@@ -101,6 +182,11 @@ namespace BallDrive.Data.Characters
             }
             
         }
+
+        private void addToPointGains(Position p, int value)
+        {
+            PointGains.Add(new Tuple<Position, int, int>(p, value, 0));
+        }
         
 
         private async void enemyShot(List<Character> enemies)
@@ -112,11 +198,16 @@ namespace BallDrive.Data.Characters
                     // Wat hebben we geraakt en wat doen we ermee?
                     if (ch is BombNPC)
                     {
+                        addToPointGains(ch.Position, -(CurrentCharacter.Points / 5));
                         CurrentCharacter.Multi.Clear();
                         CurrentCharacter.Points -= CurrentCharacter.Points / 5; // Lose 20% of Health
                     }
                     else if (ch is MovingNPC || ch is NPC)
-                        CurrentCharacter.Points += CurrentCharacter.Multi.Increment();
+                    {
+                        int pointGain = CurrentCharacter.Multi.Increment();
+                        addToPointGains(ch.Position, pointGain);
+                        CurrentCharacter.Points += pointGain;
+                    }
                     else if (ch is Item)
                     {
                         if (ch is StarModeItem)
@@ -126,6 +217,15 @@ namespace BallDrive.Data.Characters
                         }
                         else if (ch is MultiplyerEnhancerItem)
                             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.DOUBLE_POINTS;
+                        else if (ch is ShooterItem)
+                        {
+                            BulletReleaseThread.RunWorkerAsync();
+
+                        }
+                        else if (ch is SpeedBoostItem)
+                        {
+                            CurrentCharacter.speedBoost();
+                        }
 
                         // Run seperate worker to set effect for 5 minutes
                         BackgroundWorker worker = new BackgroundWorker();
@@ -157,6 +257,37 @@ namespace BallDrive.Data.Characters
             CurrentCharacter.currentColor = originalColor;
             CurrentCharacter.Multi.MPBonus = Multiplyer.multiplyerBonus.NO_BONUS;
             CurrentCharacter.Multi.MP = 5;
+        }
+
+        private async void DoShootBullets(object sender, DoWorkEventArgs e)
+        {
+            int bulletsshot = 0;
+            while (bulletsshot < 5)
+            {
+                // Release bullets
+                for (int ang = 0; ang < 360; ang += 60)
+                {
+                    Debug.WriteLine("Shooting bullet towards angle {0}", ang);
+                    double spawnX, spawnY;
+                    spawnX = CurrentCharacter.Position.X += 5 * Math.Cos(ang);
+                    spawnY = CurrentCharacter.Position.Y -= 5 * Math.Sin(ang);
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+                    {
+                        ShotsFired.Add(new BulletNPC(CurrentCharacter.Position, ang, (int)spawnX, (int)spawnY));
+
+                    });
+                    
+                }
+
+                LastBulletRelease = DateTime.Now;
+                bulletsshot++;
+                await Task.Delay((int)BulletReleaseTimeSpan.TotalMilliseconds);
+            }
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+            {
+                ShotsFired.Clear();
+            });
+            
         }
 
         public async void Close()

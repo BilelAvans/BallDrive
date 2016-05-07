@@ -108,13 +108,17 @@
     <Compile Include="Data\Characters\Animations\NPCHitAnimation.cs" />
     <Compile Include="Data\Characters\Character.cs" />
     <Compile Include="Data\Characters\CharacterManager.cs" />
+    <Compile Include="Data\Characters\Items\SpeedBoostItem.cs" />
+    <Compile Include="Data\Characters\PointsToColorBrushConverter.cs" />
     <Compile Include="Data\Characters\ColorToColorBrushConverter.cs" />
     <Compile Include="Data\Characters\DoubleToMultiplyerString.cs" />
     <Compile Include="Data\Characters\Bounds.cs" />
+    <Compile Include="Data\Characters\Enemies\BulletNPC.cs" />
     <Compile Include="Data\Characters\Enemies\CharacterFactory.cs" />
     <Compile Include="Data\Characters\Enemies\MovingNPC.cs" />
     <Compile Include="Data\Characters\Enemies\MultiplyerBonusNPC.cs" />
     <Compile Include="Data\Characters\Enemies\NPC.cs" />
+    <Compile Include="Data\Characters\Items\ShooterItem.cs" />
     <Compile Include="Data\Characters\Items\Item.cs" />
     <Compile Include="Data\Characters\Items\MultiplyerEnhancerItem.cs" />
     <Compile Include="Data\Characters\Items\StarModeItem.cs" />
@@ -161,6 +165,7 @@
     <None Include="BallDrive_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\aim.png" />
     <Content Include="Assets\bomb-20x20.png" />
     <Content Include="Assets\bomb-30x31.png" />
     <Content Include="Assets\infoicon-31x-31x.png" />
@@ -168,6 +173,9 @@
     <Content Include="Assets\play.png" />
     <Content Include="Assets\plus.png" />
     <Content Include="Assets\refresh.png" />
+    <Content Include="Assets\rocket-space-ship-with-two-round-windows_318-36249.jpg" />
+    <Content Include="Assets\rocket.png" />
+    <Content Include="Assets\speed-arrows.png" />
     <Content Include="Assets\star.png" />
     <Content Include="Assets\stop.png" />
     <Content Include="Properties\Default.rd.xml" />

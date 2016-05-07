@@ -10,23 +10,25 @@ namespace BallDrive.Data.Characters.Enemies
 {
     public static class CharacterFactory
     {
+        public static int Width = 400, Height = 600;
+
         public static NPC RandomNPC(int width, int height)
         {
-            Tuple<int, int> randoms = randomXY(400, 600);
+            Tuple<int, int> randoms = randomXY(width, height);
             NPC npc = new NPC(randoms.Item1, randoms.Item2);
             return npc;
         }
 
         public static NPC RandomMovingNPC(int width, int height)
         {
-            Tuple<int, int> randoms = randomXY(400, 600);
+            Tuple<int, int> randoms = randomXY(width, height);
             MovingNPC npc = new MovingNPC(randoms.Item1, randoms.Item2);
             return npc;
         }
 
         public static NPC RandomBombNPC(int width, int height)
         {
-            Tuple<int, int> randoms = randomXY(400, 600);
+            Tuple<int, int> randoms = randomXY(width, height);
             BombNPC npc = new BombNPC(randoms.Item1, randoms.Item2);
             return npc;
         }
@@ -70,13 +72,33 @@ namespace BallDrive.Data.Characters.Enemies
             Item item = new MultiplyerEnhancerItem(randoms.Item1, randoms.Item2);
             return item;
         }
+
+        public static Item RandomShooterItem(int width, int height)
+        {
+            Tuple<int, int> randoms = randomXY(400, 600);
+            Item item = new ShooterItem(randoms.Item1, randoms.Item2);
+            return item;
+        }
+
+        public static Item RandomSpeedBoostItem(int width, int height)
+        {
+            Tuple<int, int> randoms = randomXY(400, 600);
+            SpeedBoostItem item = new SpeedBoostItem(randoms.Item1, randoms.Item2);
+            return item;
+        }
+
+
         public static Item RandomItem(int width, int height)
         {
-            int number = (new Random()).Next(4);
+            int number = (new Random()).Next(9);
 
             if (number < 3)
                 return RandomStarItem(width, height);
-
+            if (number <= 6)
+                return RandomShooterItem(width, height);
+            if (number <= 9)
+                return RandomSpeedBoostItem(width, height);
+            
             return (Item)RandomMultiplyerEnhancer(width, height);
         }
     }

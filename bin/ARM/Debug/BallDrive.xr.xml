@@ -4,11 +4,13 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Item2" />
+    <RootPropertyPathName Name="Item1" />
+    <RootPropertyPathName Name="X" />
+    <RootPropertyPathName Name="Y" />
     <RootPropertyPathName Name="brush" />
     <RootPropertyPathName Name="Size" />
     <RootPropertyPathName Name="Position" />
-    <RootPropertyPathName Name="X" />
-    <RootPropertyPathName Name="Y" />
     <RootPropertyPathName Name="CMan" />
     <RootPropertyPathName Name="CurrentCharacter" />
     <RootPropertyPathName Name="LastPositions" />
@@ -63,8 +65,9 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Name" />
+      <RootProperty Name="Foreground" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Name" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Padding" />
     </RootType>
@@ -119,6 +122,7 @@
     <RootType FullName="BallDrive.Data.Characters.DoubleToMultiplyerString" />
     <RootType FullName="BallDrive.Data.Characters.ColorToColorBrushConverter" />
     <RootType FullName="BallDrive.Data.Games.toMinuteSecondFormatConverter" />
+    <RootType FullName="BallDrive.Data.Characters.PointsToColorBrushConverter" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.DoubleAnimation">
       <RootProperty Name="From" />
       <RootProperty Name="To" />

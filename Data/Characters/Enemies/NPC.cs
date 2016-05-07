@@ -17,7 +17,6 @@ namespace BallDrive.Data.Characters
     public class NPC : Character
     {
 
-        private DateTime spawnTime;
 
         public int[] Destination { get; set; }
 
@@ -26,13 +25,11 @@ namespace BallDrive.Data.Characters
 
         public NPC(int x, int y) : base(x, y, 10, 25, Colors.Cyan)
         {
-            this.spawnTime      =   DateTime.Now;
             this.timeToLive     =   TimeSpan.FromSeconds(15);
         }
 
         public NPC(int x, int y, int speed, int size, Color col): base(x, y, speed, size, col)
         {
-            this.spawnTime = DateTime.Now;
             this.timeToLive = TimeSpan.FromSeconds(15);
         } 
 
@@ -47,17 +44,6 @@ namespace BallDrive.Data.Characters
             {
                 // Geen leven meer over
             }
-        }
-
-        public bool lifecycleEnded()
-        {
-            if (timeToLive != null) {
-                // Kill after x amount of time
-                if (DateTime.Now - this.spawnTime > timeToLive)
-                    return true;
-            }
-            
-            return false; 
         }
         
     }

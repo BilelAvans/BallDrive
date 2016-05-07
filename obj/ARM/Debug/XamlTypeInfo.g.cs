@@ -132,7 +132,7 @@ namespace BallDrive.BallDrive_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[31];
+            _typeNameTable = new string[32];
             _typeNameTable[0] = "BallDrive.ColorToBrushConverter";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "BallDrive.AppSettings";
@@ -147,25 +147,26 @@ namespace BallDrive.BallDrive_XamlTypeInfo
             _typeNameTable[11] = "BallDrive.Data.Characters.DoubleToMultiplyerString";
             _typeNameTable[12] = "BallDrive.Data.Characters.ColorToColorBrushConverter";
             _typeNameTable[13] = "BallDrive.Data.Games.toMinuteSecondFormatConverter";
-            _typeNameTable[14] = "BallDrive.GameView";
-            _typeNameTable[15] = "BallDrive.Data.Games.Game";
-            _typeNameTable[16] = "BallDrive.HighScoreView";
-            _typeNameTable[17] = "System.Collections.Generic.List`1<BallDrive.Data.Scores.HighScore>";
-            _typeNameTable[18] = "BallDrive.Data.Scores.HighScore";
-            _typeNameTable[19] = "String";
-            _typeNameTable[20] = "Int32";
-            _typeNameTable[21] = "System.DateTime";
-            _typeNameTable[22] = "BallDrive.Data.Controls.DifficultySettings.DIFFICULTY";
-            _typeNameTable[23] = "System.Enum";
-            _typeNameTable[24] = "BallDrive.Data.PopupQueue";
-            _typeNameTable[25] = "System.Collections.Generic.Queue`1<String>";
-            _typeNameTable[26] = "Boolean";
-            _typeNameTable[27] = "BallDrive.MainPage";
-            _typeNameTable[28] = "BallDrive.NewGamePage";
-            _typeNameTable[29] = "BallDrive.Data.Notifications.NoteQueue";
-            _typeNameTable[30] = "System.Collections.Generic.Queue`1<BallDrive.Data.Notifications.Note>";
+            _typeNameTable[14] = "BallDrive.Data.Characters.PointsToColorBrushConverter";
+            _typeNameTable[15] = "BallDrive.GameView";
+            _typeNameTable[16] = "BallDrive.Data.Games.Game";
+            _typeNameTable[17] = "BallDrive.HighScoreView";
+            _typeNameTable[18] = "System.Collections.Generic.List`1<BallDrive.Data.Scores.HighScore>";
+            _typeNameTable[19] = "BallDrive.Data.Scores.HighScore";
+            _typeNameTable[20] = "String";
+            _typeNameTable[21] = "Int32";
+            _typeNameTable[22] = "System.DateTime";
+            _typeNameTable[23] = "BallDrive.Data.Controls.DifficultySettings.DIFFICULTY";
+            _typeNameTable[24] = "System.Enum";
+            _typeNameTable[25] = "BallDrive.Data.PopupQueue";
+            _typeNameTable[26] = "System.Collections.Generic.Queue`1<String>";
+            _typeNameTable[27] = "Boolean";
+            _typeNameTable[28] = "BallDrive.MainPage";
+            _typeNameTable[29] = "BallDrive.NewGamePage";
+            _typeNameTable[30] = "BallDrive.Data.Notifications.NoteQueue";
+            _typeNameTable[31] = "System.Collections.Generic.Queue`1<BallDrive.Data.Notifications.Note>";
 
-            _typeTable = new global::System.Type[31];
+            _typeTable = new global::System.Type[32];
             _typeTable[0] = typeof(global::BallDrive.ColorToBrushConverter);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::BallDrive.AppSettings);
@@ -180,23 +181,24 @@ namespace BallDrive.BallDrive_XamlTypeInfo
             _typeTable[11] = typeof(global::BallDrive.Data.Characters.DoubleToMultiplyerString);
             _typeTable[12] = typeof(global::BallDrive.Data.Characters.ColorToColorBrushConverter);
             _typeTable[13] = typeof(global::BallDrive.Data.Games.toMinuteSecondFormatConverter);
-            _typeTable[14] = typeof(global::BallDrive.GameView);
-            _typeTable[15] = typeof(global::BallDrive.Data.Games.Game);
-            _typeTable[16] = typeof(global::BallDrive.HighScoreView);
-            _typeTable[17] = typeof(global::System.Collections.Generic.List<global::BallDrive.Data.Scores.HighScore>);
-            _typeTable[18] = typeof(global::BallDrive.Data.Scores.HighScore);
-            _typeTable[19] = typeof(global::System.String);
-            _typeTable[20] = typeof(global::System.Int32);
-            _typeTable[21] = typeof(global::System.DateTime);
-            _typeTable[22] = typeof(global::BallDrive.Data.Controls.DifficultySettings.DIFFICULTY);
-            _typeTable[23] = typeof(global::System.Enum);
-            _typeTable[24] = typeof(global::BallDrive.Data.PopupQueue);
-            _typeTable[25] = typeof(global::System.Collections.Generic.Queue<global::System.String>);
-            _typeTable[26] = typeof(global::System.Boolean);
-            _typeTable[27] = typeof(global::BallDrive.MainPage);
-            _typeTable[28] = typeof(global::BallDrive.NewGamePage);
-            _typeTable[29] = typeof(global::BallDrive.Data.Notifications.NoteQueue);
-            _typeTable[30] = typeof(global::System.Collections.Generic.Queue<global::BallDrive.Data.Notifications.Note>);
+            _typeTable[14] = typeof(global::BallDrive.Data.Characters.PointsToColorBrushConverter);
+            _typeTable[15] = typeof(global::BallDrive.GameView);
+            _typeTable[16] = typeof(global::BallDrive.Data.Games.Game);
+            _typeTable[17] = typeof(global::BallDrive.HighScoreView);
+            _typeTable[18] = typeof(global::System.Collections.Generic.List<global::BallDrive.Data.Scores.HighScore>);
+            _typeTable[19] = typeof(global::BallDrive.Data.Scores.HighScore);
+            _typeTable[20] = typeof(global::System.String);
+            _typeTable[21] = typeof(global::System.Int32);
+            _typeTable[22] = typeof(global::System.DateTime);
+            _typeTable[23] = typeof(global::BallDrive.Data.Controls.DifficultySettings.DIFFICULTY);
+            _typeTable[24] = typeof(global::System.Enum);
+            _typeTable[25] = typeof(global::BallDrive.Data.PopupQueue);
+            _typeTable[26] = typeof(global::System.Collections.Generic.Queue<global::System.String>);
+            _typeTable[27] = typeof(global::System.Boolean);
+            _typeTable[28] = typeof(global::BallDrive.MainPage);
+            _typeTable[29] = typeof(global::BallDrive.NewGamePage);
+            _typeTable[30] = typeof(global::BallDrive.Data.Notifications.NoteQueue);
+            _typeTable[31] = typeof(global::System.Collections.Generic.Queue<global::BallDrive.Data.Notifications.Note>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -239,22 +241,23 @@ namespace BallDrive.BallDrive_XamlTypeInfo
         private object Activate_11_DoubleToMultiplyerString() { return new global::BallDrive.Data.Characters.DoubleToMultiplyerString(); }
         private object Activate_12_ColorToColorBrushConverter() { return new global::BallDrive.Data.Characters.ColorToColorBrushConverter(); }
         private object Activate_13_toMinuteSecondFormatConverter() { return new global::BallDrive.Data.Games.toMinuteSecondFormatConverter(); }
-        private object Activate_14_GameView() { return new global::BallDrive.GameView(); }
-        private object Activate_16_HighScoreView() { return new global::BallDrive.HighScoreView(); }
-        private object Activate_17_List() { return new global::System.Collections.Generic.List<global::BallDrive.Data.Scores.HighScore>(); }
-        private object Activate_24_PopupQueue() { return new global::BallDrive.Data.PopupQueue(); }
-        private object Activate_25_Queue() { return new global::System.Collections.Generic.Queue<global::System.String>(); }
-        private object Activate_27_MainPage() { return new global::BallDrive.MainPage(); }
-        private object Activate_28_NewGamePage() { return new global::BallDrive.NewGamePage(); }
-        private object Activate_29_NoteQueue() { return new global::BallDrive.Data.Notifications.NoteQueue(); }
-        private object Activate_30_Queue() { return new global::System.Collections.Generic.Queue<global::BallDrive.Data.Notifications.Note>(); }
+        private object Activate_14_PointsToColorBrushConverter() { return new global::BallDrive.Data.Characters.PointsToColorBrushConverter(); }
+        private object Activate_15_GameView() { return new global::BallDrive.GameView(); }
+        private object Activate_17_HighScoreView() { return new global::BallDrive.HighScoreView(); }
+        private object Activate_18_List() { return new global::System.Collections.Generic.List<global::BallDrive.Data.Scores.HighScore>(); }
+        private object Activate_25_PopupQueue() { return new global::BallDrive.Data.PopupQueue(); }
+        private object Activate_26_Queue() { return new global::System.Collections.Generic.Queue<global::System.String>(); }
+        private object Activate_28_MainPage() { return new global::BallDrive.MainPage(); }
+        private object Activate_29_NewGamePage() { return new global::BallDrive.NewGamePage(); }
+        private object Activate_30_NoteQueue() { return new global::BallDrive.Data.Notifications.NoteQueue(); }
+        private object Activate_31_Queue() { return new global::System.Collections.Generic.Queue<global::BallDrive.Data.Notifications.Note>(); }
         private void VectorAdd_5_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Color>)instance;
             var newItem = (global::Windows.UI.Color)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_17_List(object instance, object item)
+        private void VectorAdd_18_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::BallDrive.Data.Scores.HighScore>)instance;
             var newItem = (global::BallDrive.Data.Scores.HighScore)item;
@@ -360,37 +363,44 @@ namespace BallDrive.BallDrive_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 14:   //  BallDrive.GameView
+            case 14:   //  BallDrive.Data.Characters.PointsToColorBrushConverter
+                userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_14_PointsToColorBrushConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  BallDrive.GameView
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_GameView;
+                userType.Activator = Activate_15_GameView;
                 userType.AddMemberName("CurrentGame");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  BallDrive.Data.Games.Game
+            case 16:   //  BallDrive.Data.Games.Game
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 16:   //  BallDrive.HighScoreView
+            case 17:   //  BallDrive.HighScoreView
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_HighScoreView;
+                userType.Activator = Activate_17_HighScoreView;
                 userType.AddMemberName("TOP7");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  System.Collections.Generic.List`1<BallDrive.Data.Scores.HighScore>
+            case 18:   //  System.Collections.Generic.List`1<BallDrive.Data.Scores.HighScore>
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_17_List;
+                userType.CollectionAdd = VectorAdd_18_List;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 18:   //  BallDrive.Data.Scores.HighScore
+            case 19:   //  BallDrive.Data.Scores.HighScore
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.AddMemberName("Name");
                 userType.AddMemberName("Score");
@@ -400,21 +410,21 @@ namespace BallDrive.BallDrive_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 19:   //  String
+            case 20:   //  String
                 xamlType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 20:   //  Int32
+            case 21:   //  Int32
                 xamlType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  System.DateTime
+            case 22:   //  System.DateTime
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 22:   //  BallDrive.Data.Controls.DifficultySettings.DIFFICULTY
+            case 23:   //  BallDrive.Data.Controls.DifficultySettings.DIFFICULTY
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("EASY", global::BallDrive.Data.Controls.DifficultySettings.DIFFICULTY.EASY);
                 userType.AddEnumValue("NORMAL", global::BallDrive.Data.Controls.DifficultySettings.DIFFICULTY.NORMAL);
@@ -423,56 +433,56 @@ namespace BallDrive.BallDrive_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 23:   //  System.Enum
+            case 24:   //  System.Enum
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 24:   //  BallDrive.Data.PopupQueue
+            case 25:   //  BallDrive.Data.PopupQueue
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.Generic.Queue`1<String>"));
-                userType.Activator = Activate_24_PopupQueue;
+                userType.Activator = Activate_25_PopupQueue;
                 userType.AddMemberName("MessageAvailable");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 25:   //  System.Collections.Generic.Queue`1<String>
+            case 26:   //  System.Collections.Generic.Queue`1<String>
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_25_Queue;
+                userType.Activator = Activate_26_Queue;
                 userType.AddMemberName("Count");
                 xamlType = userType;
                 break;
 
-            case 26:   //  Boolean
+            case 27:   //  Boolean
                 xamlType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 27:   //  BallDrive.MainPage
+            case 28:   //  BallDrive.MainPage
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_27_MainPage;
+                userType.Activator = Activate_28_MainPage;
                 userType.AddMemberName("deviceType");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 28:   //  BallDrive.NewGamePage
+            case 29:   //  BallDrive.NewGamePage
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_28_NewGamePage;
+                userType.Activator = Activate_29_NewGamePage;
                 userType.AddMemberName("nQueue");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 29:   //  BallDrive.Data.Notifications.NoteQueue
+            case 30:   //  BallDrive.Data.Notifications.NoteQueue
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.Generic.Queue`1<BallDrive.Data.Notifications.Note>"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 30:   //  System.Collections.Generic.Queue`1<BallDrive.Data.Notifications.Note>
+            case 31:   //  System.Collections.Generic.Queue`1<BallDrive.Data.Notifications.Note>
                 userType = new global::BallDrive.BallDrive_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_30_Queue;
+                userType.Activator = Activate_31_Queue;
                 xamlType = userType;
                 break;
             }

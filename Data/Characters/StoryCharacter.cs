@@ -28,7 +28,9 @@ namespace BallDrive.Data.Characters
         private Multiplyer multi;
         public Multiplyer Multi { get { return multi; } set { this.multi = value; Changed("Multi"); Changed("Speed"); } }
 
-        public new int Speed { get { return (int)multi.MP * 5; } }
+        public new int Speed { get { return ((int)multi.MP + extraSpeed) / 3 + 1; } }
+
+        public int extraSpeed = 0;
 
         public string Name { get; set; } = "Bob";
 
@@ -44,7 +46,18 @@ namespace BallDrive.Data.Characters
 
         public new void move(ControlHandler.Directions dir)
         {
-            base.move(dir);
+            switch (dir)
+            {
+                case KeyHandler.Directions.NORTH: move(0, -this.Speed); break; // Go up
+                case KeyHandler.Directions.NORTH_WEST: move(-this.Speed, -this.Speed); break;
+                case KeyHandler.Directions.WEST: move(this.Speed, 0); break; // Go Left
+                case KeyHandler.Directions.NORTH_EAST: move(this.Speed, -this.Speed); break;
+                case KeyHandler.Directions.EAST: move(this.Speed, 0); break; // Go Right
+                case KeyHandler.Directions.SOUTH_EAST: move(this.Speed, this.Speed); break;
+                case KeyHandler.Directions.SOUTH: move(0, this.Speed); break; // Go Down
+                case KeyHandler.Directions.SOUTH_WEST: move(-this.Speed, this.Speed); break;
+            }
+
             stepCounter++;
 
             if (stepCounter % ADD_STEP_EVERY_X_MOVES == 0)
@@ -52,6 +65,16 @@ namespace BallDrive.Data.Characters
                 addToLastPositions(new Enemies.Position(Position.X, Position.Y));
                 stepCounter = 0;
             }
+
+            // Reflect to other side?
+            if (Position.X < 0)
+                Position.X = 400;
+            if (Position.Y < 0)
+                Position.Y = 600;
+            if (Position.X > 400)
+                Position.X = 0;
+            if (Position.Y > 600)
+                Position.Y = 0;
         } 
 
         public void addPoints(int amount)
@@ -77,6 +100,27 @@ namespace BallDrive.Data.Characters
                 
                 Changed("LastPositions");
             });
+        }
+
+        public void speedBoost()
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += Do_SpeedBoost;
+            worker.RunWorkerAsync();
+        }
+
+        public async void Do_SpeedBoost(object sender, DoWorkEventArgs args) {
+            for (int speedIncreaseTimer = 1; speedIncreaseTimer < 3; speedIncreaseTimer++)
+            {
+                extraSpeed = speedIncreaseTimer;
+                Changed("Speed");
+                Debug.WriteLine("Changed speed to {0}", this.Speed);
+                // Wait second after increase
+                await Task.Delay(2000);
+            }
+
+            extraSpeed = 0;
+
         } 
         /*
         public new bool outOfBounds(int boundX, int boundY)

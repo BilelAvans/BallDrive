@@ -440,3 +440,13 @@ C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.g.i.cs
 C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.g.cs
 C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.xaml
 C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\GameInfoPage.xbf
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\BallDriveInfoPage.xbf
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\GameInfoPage.xbf
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\BallDriveInfoPage.g.i.cs
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\BallDriveInfoPage.g.cs
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\GameInfoPage.g.i.cs
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\GameInfoPage.g.cs
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\BallDriveInfoPage.xaml
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\GameInfoPage.xaml
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\BallDriveInfoPage.xbf
+C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\GameInfoPage.xbf

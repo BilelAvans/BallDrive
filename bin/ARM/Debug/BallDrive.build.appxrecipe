@@ -9,16 +9,16 @@
     <SolutionConfiguration>Debug|ARM</SolutionConfiguration>
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>c43ca138-1477-49c5-9197-24adc9e9de4e</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Bilel\Source\Repos\BallDrive\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\obj\ARM\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\ARM\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\ARM\Debug\BallDrive.exe">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\BallDrive.exe">
       <PackagePath>entrypoint\BallDrive.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Bilel\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
@@ -339,76 +339,88 @@
     <AppxPackagedFile Include="C:\Users\Bilel\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\bomb-20x20.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\aim.png">
+      <PackagePath>Assets\aim.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\bomb-20x20.png">
       <PackagePath>Assets\bomb-20x20.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\bomb-30x31.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\bomb-30x31.png">
       <PackagePath>Assets\bomb-30x31.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\infoicon-31x-31x.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\infoicon-31x-31x.png">
       <PackagePath>Assets\infoicon-31x-31x.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\pause.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\pause.png">
       <PackagePath>Assets\pause.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\play.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\play.png">
       <PackagePath>Assets\play.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\plus.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\plus.png">
       <PackagePath>Assets\plus.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\refresh.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\refresh.png">
       <PackagePath>Assets\refresh.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\star.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\rocket.png">
+      <PackagePath>Assets\rocket.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\speed-arrows.png">
+      <PackagePath>Assets\speed-arrows.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\star.png">
       <PackagePath>Assets\star.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\stop.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\stop.png">
       <PackagePath>Assets\stop.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Assets\rocket-space-ship-with-two-round-windows_318-36249.jpg">
+      <PackagePath>Assets\rocket-space-ship-with-two-round-windows_318-36249.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\ARM\Debug\BallDrive.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\BallDrive.xr.xml">
       <PackagePath>BallDrive.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Bilel\Source\Repos\BallDrive\bin\ARM\Debug\Core\BallDrive.exe">
+    <AppxPackagedFile Include="C:\Users\Bilel\Documents\Visual Studio 2015\Projects\BallDrive\BallDrive\bin\ARM\Debug\Core\BallDrive.exe">
       <PackagePath>BallDrive.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

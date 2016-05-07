@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Windows.ApplicationModel.Core;
 using BallDrive.Data.Notifications;
 using BallDrive.Data.Controls;
+using BallDrive.Data.Characters.Enemies;
 
 namespace BallDrive.Data.Games
 {
@@ -23,7 +24,8 @@ namespace BallDrive.Data.Games
         protected DateTime startTime;
 
         public TimeSpan TimeLeft { get { return (startTime + Difficulty.gameTimeLength) - DateTime.Now; } }
-
+        // History of point gains
+        
 
         public DifficultySettings Difficulty;
         // Start repawn speed at 1 second
@@ -41,7 +43,8 @@ namespace BallDrive.Data.Games
 
         public void runOnce()
         {
-            CMan.moveCurrentCharacter();
+            
+            CMan.runLogic();
             hasEnded();
         }
         

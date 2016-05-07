@@ -32,6 +32,8 @@ namespace BallDrive.Data.Characters
         // Might set an image for the character
         private Image image { get; set; }
         public TimeSpan timeToLive { get; set; }
+
+        private DateTime spawnTime;
         // Size of our shape
         public int Size { get; set; }
 
@@ -46,6 +48,7 @@ namespace BallDrive.Data.Characters
             this.Speed = speed;
             this.Size = size;
             this.currentColor = color;
+            this.spawnTime = DateTime.Now;
         }
 
         // Constructor for Ítems
@@ -140,6 +143,18 @@ namespace BallDrive.Data.Characters
 
             return false;
 
+        }
+
+        public bool lifecycleEnded()
+        {
+            if (timeToLive != null)
+            {
+                // Kill after x amount of time
+                if (DateTime.Now - this.spawnTime > timeToLive)
+                    return true;
+            }
+
+            return false;
         }
 
         ~Character()
