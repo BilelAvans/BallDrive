@@ -1,5 +1,6 @@
 WinMetadata\Windows.winmd
 ApplicationInsights.config
+Assets\aim.png
 Assets\bomb-20x20.png
 Assets\bomb-30x31.png
 Assets\infoicon-31x-31x.png
@@ -8,6 +9,9 @@ Assets\pause.png
 Assets\play.png
 Assets\plus.png
 Assets\refresh.png
+Assets\rocket.png
+Assets\rocket-space-ship-with-two-round-windows_318-36249.jpg
+Assets\speed-arrows.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
 Assets\Square44x44Logo.scale-200.png

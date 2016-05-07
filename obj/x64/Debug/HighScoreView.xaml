@@ -1,0 +1,63 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="BallDrive.HighScoreView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BallDrive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+                                    >
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='2' x:Name="MobileVisState">
+                <VisualState>
+                    <VisualState.Setters>
+                        <Setter Target="scoreItemsList.Width" Value="300" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="200" MinWindowHeight="300" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:ConnectionId='3' x:Name="DesktopVisState">
+                <VisualState>
+                    <VisualState.Setters>
+                        <Setter Target="scoreItemsList.Width" Value="600" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="800" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Top 7 Highscores" Margin="0, 10, 0, 0"/>
+
+            <ListView x:ConnectionId='4' x:Name="scoreItemsList"                             Margin="0, 10, 0, 0">
+                <ListView.Header>
+                    <StackPanel Orientation="Horizontal" Margin="10, 10, 0, 0">
+                        <TextBlock Text="Name"           Margin="10, 0, 0, 0"     />
+                        <TextBlock Text="Score"          Margin="10, 0, 0, 0"   />
+                        <TextBlock Text="Time"           Margin="10, 0, 0, 0"    />
+                        <TextBlock Text="Difficulty"     Margin="10, 0, 0, 0"   />
+                    </StackPanel>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListBoxItem FontSize="11">
+                            <StackPanel Orientation="Horizontal" Margin="10, 10, 0, 0">
+                                <TextBlock Text="{Binding Name}" FontSize="11" Margin="10, 0, 0, 0"       />
+                                <TextBlock Text="{Binding Score}" FontSize="11"  Margin="10, 0, 0, 0"       />
+                                <TextBlock Text="{Binding Time}"   FontSize="11"    Margin="10, 0, 0, 0"    />
+                                <TextBlock Text="{Binding Difficulty}" FontSize="11" Margin="10, 0, 0, 0"    />
+                            </StackPanel>
+                        </ListBoxItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+        </StackPanel>
+    </Grid>
+</Page>
+

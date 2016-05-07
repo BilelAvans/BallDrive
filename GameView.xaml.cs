@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Shapes;
 using System.Threading;
+using System.Collections.Generic;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -35,6 +36,8 @@ namespace BallDrive
 
         private BackgroundWorker worker { get; set; }
         private DispatcherTimer timer { get; set; }
+
+        
 
         private bool isPaused = false;
         private DateTime lastPause;
@@ -112,7 +115,7 @@ namespace BallDrive
                         if (DateTime.Now - lastSpecialSpawn > CurrentGame.Difficulty.specialPowerSpawnTime)
                         {
                             // Item aanmaken
-                            Item item = CharacterFactory.RandomItem(400, 600);
+                            Item item = CharacterFactory.RandomItem((int)Width - 40, (int)Height - 40);
                             item.timeToLive = CurrentGame.Difficulty.timeToLiveCharacters;
                             CurrentGame.CMan.Characters.Add(item);
                             // Tijd registreren

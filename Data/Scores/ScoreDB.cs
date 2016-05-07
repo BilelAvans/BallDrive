@@ -52,16 +52,10 @@ namespace BallDrive.Data.Scores
 
                 return tempHighscores;
             }
-            catch (NullReferenceException ex)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
 
-            }
-            catch (FileNotFoundException ex)
-            {
-            }
-            catch (IndexOutOfRangeException ex)
-            {
-                Debug.WriteLine(ex.Source);
             }
             // No items returned
              

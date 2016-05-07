@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="BallDrive.GameInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BallDrive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:ConnectionId='1' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"                     >
+        <StackPanel>
+            <TextBlock Margin="10, 10, 0, 0"    Text="In a Nutshell" />
+            <TextBlock Margin="10, 20, 0, 0"    FontSize="11" FontFamily="Verdana" Text="Move your phone around it's center and the ball will move" />
+            <TextBlock Margin="10, 0, 0, 0"     FontSize="11" FontFamily="Verdana" Text="accordingly. Hit the objects to activate their effect." />
+            <TextBlock Margin="10, 0, 0, 0"     FontSize="11" FontFamily="Verdana" Text="Catch the balls or else they'll reduce your multiplyer " />
+            <TextBlock Margin="10, 0, 0, 0"     FontSize="11" FontFamily="Verdana" Text="by 1. " />
+            <TextBlock Margin="10, 15, 0, 0"     FontSize="11" FontFamily="Verdana" Text="Objects" />
+            <StackPanel Orientation="Horizontal" Margin="10, 10, 0, 0">
+                <Ellipse Fill="Cyan" Width="30" Height="30" />
+                <TextBlock Text="Ball" Margin="10,0,0,0" FontSize="11" FontFamily="Verdana"/>
+                <StackPanel Margin="72, 0, 0, 0">
+                    <TextBlock Text="Doesn't move just hit it to gain points." FontSize="11" FontFamily="Verdana" Width="268"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0" >
+                <Ellipse Fill="Red" Width="30" Height="30" />
+                <TextBlock Text="Moving Ball" Width="65" FontSize="11" FontFamily="Verdana" />
+                <StackPanel Margin="37, 0, 0, 0">
+                    <TextBlock Text="This one moves. Catch it before it" FontSize="11" FontFamily="Verdana"  />
+                    <TextBlock Text="leaves the field" FontSize="11" FontFamily="Verdana"  />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0">
+                <Image Source="/Assets/bomb-30x31.png" Width="30" Height="30" />
+                <TextBlock Text="Bomb" RenderTransformOrigin="1.752,0.267" FontSize="11" FontFamily="Verdana"  />
+                <StackPanel Margin="65,0,0,0">
+                    <TextBlock Text="Avoid! Will decrease your points by 20%." Margin="5, 0, 0, 0" FontSize="11" FontFamily="Verdana"  />
+                    <TextBlock Text="and set your multiplyer to 1x." Margin="5, 0, 0, 0" FontSize="11" FontFamily="Verdana"  />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0">
+                <Image Source="/Assets/star.png" Width="30" Height="30" />
+                <TextBlock Text="Star Multiplyer" FontSize="11" FontFamily="Verdana"/>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Text="5 second x10 Multiplyer Boost." FontSize="11" FontFamily="Verdana"  />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10, 20, 0, 0">
+                <Image Source="/Assets/plus.png" Width="30" Height="30" />
+                <TextBlock Text="Double Points" FontSize="11" FontFamily="Verdana" />
+                <StackPanel Margin="27,0,0,0">
+                    <TextBlock Text="Doubles your gained points for" FontSize="11" FontFamily="Verdana" />
+                    <TextBlock Text="5 seconds." FontSize="11" FontFamily="Verdana"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Text="Doubletap Screen to play game" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="11" FontFamily="Verdana" />
+    </Grid>
+</Page>
+
